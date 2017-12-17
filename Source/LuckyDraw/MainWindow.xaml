@@ -1,4 +1,4 @@
-﻿<Window x:Class="LuckyDraw.MainWindow"
+﻿<telerik:RadWindow x:Class="LuckyDraw.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:LuckyDraw"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         mc:Ignorable="d" 
-        Loaded="Window_Loaded" 
+        Loaded="Window_Loaded" Style="{StaticResource RadWindowStyle}"
         Keyboard.PreviewKeyDown="Window_PreviewKeyDown"
         MouseDoubleClick="Window_MouseDoubleClick"
-        Title="2018年会抽奖" Height="350" Width="525">
+        Header="2018年会抽奖" Height="350" Width="525">
     <Grid>
         <Grid.Resources>
             <DataTemplate x:Key="itemTemplate">
@@ -17,10 +17,130 @@
             </DataTemplate>
         </Grid.Resources>
 
-        <telerik:RadCarousel x:Name="radCarousel"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <telerik:RadCarousel x:Name="radCarousePrizel"
                              HorizontalAlignment="Stretch"
                              VerticalAlignment="Stretch"
                              ItemsSource="{Binding PrizesList}"
-                             Background="Transparent"/>
+                             ItemTemplate="{StaticResource itemTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePerson1" 
+                             Grid.Row="0" Grid.Column="1" 
+                             Margin="5 0 0 0" 
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PeopleList}"
+                             ItemTemplate="{StaticResource itemTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePrize2"
+                             Grid.Row="1" Grid.Column="0"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PrizesList}"
+                             ItemTemplate="{StaticResource itemTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePerson2" 
+                             Grid.Row="1" Grid.Column="1"
+                             Margin="5 0 0 0" 
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PeopleList}"
+                             ItemTemplate="{StaticResource itemTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePrize3"
+                             Grid.Row="2" Grid.Column="0"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PrizesList}"
+                             ItemTemplate="{StaticResource itemTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePerson3" 
+                             Grid.Row="2" Grid.Column="1"
+                             Margin="5 0 0 0" 
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PeopleList}"
+                             ItemTemplate="{StaticResource itemTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePrize4"
+                             Grid.Row="3" Grid.Column="0"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PrizesList}"
+                             ItemTemplate="{StaticResource itemTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePerson4" 
+                             Grid.Row="3" Grid.Column="1"
+                             Margin="5 0 0 0" 
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PeopleList}"
+                             ItemTemplate="{StaticResource itemTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePrize5"
+                             Grid.Row="4" Grid.Column="0"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PrizesList}"
+                             ItemTemplate="{StaticResource itemTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePerson5" 
+                             Grid.Row="4" Grid.Column="1"
+                             Margin="5 0 0 0" 
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PeopleList}"
+                             ItemTemplate="{StaticResource itemTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
     </Grid>
-</Window>
+</telerik:RadWindow>
