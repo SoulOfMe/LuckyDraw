@@ -4,11 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LuckyDraw"
-        mc:Ignorable="d"
-        Loaded="Window_Loaded"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        mc:Ignorable="d" 
+        Loaded="Window_Loaded" 
         Keyboard.PreviewKeyDown="Window_PreviewKeyDown"
-        Title="MainWindow" Height="350" Width="525">
+        MouseDoubleClick="Window_MouseDoubleClick"
+        Title="2018年会抽奖" Height="350" Width="525">
     <Grid>
-        
+        <Grid.Resources>
+            <DataTemplate x:Key="itemTemplate">
+                <TextBlock Text="{Binding Name}"/>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <telerik:RadCarousel x:Name="radCarousel"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PrizesList}"
+                             Background="Transparent"/>
     </Grid>
 </Window>
