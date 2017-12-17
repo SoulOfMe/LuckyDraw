@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LuckyDraw"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Keyboard.PreviewKeyDown="Window_PreviewKeyDown"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         
