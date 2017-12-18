@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Telerik.Windows.Controls;
 
 namespace LuckyDraw
@@ -26,7 +28,7 @@ namespace LuckyDraw
         {
             get
             {
-                return _prizesList.Count;
+                return _prizesList.Where(x => x.IsUsed == false).Count();
             }
         }
 
@@ -37,7 +39,7 @@ namespace LuckyDraw
         {
             get
             {
-                return _peopleList.Count;
+                return _peopleList.Where(x => x.IsUsed == false).Count();
             }
         }
 
@@ -66,6 +68,46 @@ namespace LuckyDraw
                 return _peopleList;
             }
         }
+
+        /// <summary>
+        /// 随机取得奖品
+        /// </summary>
+        public Prize RandomPrize
+        {
+            get
+            {
+                var list = _prizesList.Where(x => x.IsUsed == false).ToList();
+                if (list.Count > 0)
+                {
+                    Random random = new Random();
+                    var prize = list[random.Next(list.Count)];
+                    prize.IsUsed = true;
+                    return prize;
+                }
+
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 随机取得得奖者
+        /// </summary>
+        public Person RandomPerson
+        {
+            get
+            {
+                var list = _peopleList.Where(x => x.IsUsed == false).ToList();
+                if (list.Count > 0)
+                {
+                    Random random = new Random();
+                    var person = list[random.Next(list.Count)];
+                    person.IsUsed = true;
+                    return person;
+                }
+
+                return null;
+            }
+        }
         #endregion
 
         private void LoadData()
@@ -78,7 +120,7 @@ namespace LuckyDraw
             //测试数据
             _prizesList.Clear();
             _peopleList.Clear();
-            for (int i = 1; i <= 100; i++)
+            for (int i = 1; i <= 12; i++)
             {
                 _prizesList.Add(new Prize()
                 {
@@ -92,44 +134,37 @@ namespace LuckyDraw
             {
                 _peopleList.Add(new Person()
                 {
-                    ID = 1,
+                    ID = i,
                     Name = "Persion_" + i.ToString(),
                     IsUsed = false
                 });
             }
         }
 
-        public void RefrehList()
+        public bool WriteData(Dictionary<Prize, Person> list)
         {
-            //去除已经抽过的.并写入CSV文件
-            List<Prize> prizes = new List<Prize>();
-            List<Person> persons = new List<Person>();
-
-            foreach (var i in _prizesList)
+            try
             {
-                if (i.IsUsed)
+                //写入csv文件记录
+                StreamWriter writer = new StreamWriter("result.csv", true, Encoding.UTF8);
+                foreach (var i in list)
                 {
-                    prizes.Add(i);
+                    string temp = i.Key.ID + "," + i.Value.ID + ","
+                        + i.Key.Name + "," + i.Value.Name;
+                    writer.WriteLine(temp);
                 }
-            }
-            foreach (var i in _peopleList)
-            {
-                if (i.IsUsed)
-                {
-                    persons.Add(i);
-                }
-            }
 
-            foreach (var i in prizes)
-            {
-                _prizesList.Remove(i);
-            }
-            foreach (var i in persons)
-            {
-                _peopleList.Remove(i);
-            }
+                writer.Flush();
+                writer.Close();
 
-            //todo：写入csv文件记录
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("存储信息失败，请检查得奖结果文件是否被占用!" +
+                    "\n\r"+"本次抽奖不生效！");
+                return false;
+            }
         }
     }
 
