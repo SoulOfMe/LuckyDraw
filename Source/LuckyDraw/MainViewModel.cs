@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using Telerik.Windows.Controls;
 
 namespace LuckyDraw
 {
     /// <summary>
     /// 主页面的ViewModel
     /// </summary>
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public MainViewModel()
         {
             //LoadData();
@@ -46,7 +47,7 @@ namespace LuckyDraw
             }
         }
 
-        #region 界面列表数据
+        #region 界面滚动列表数据
         private ObservableCollection<Prize> _prizesList = new ObservableCollection<Prize>();
         private ObservableCollection<Person> _peopleList = new ObservableCollection<Person>();
 
@@ -109,7 +110,9 @@ namespace LuckyDraw
                 return null;
             }
         }
+        #endregion
 
+        #region 奖品及中奖者名称显示
         private string _prize1 = "";
         private string _prize2 = "";
         private string _prize3 = "";
@@ -141,7 +144,7 @@ namespace LuckyDraw
             set
             {
                 _prize1 = value;
-                OnPropertyChanged("Prize1");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Prize1"));
             }
         }
 
@@ -155,7 +158,7 @@ namespace LuckyDraw
             set
             {
                 _prize2 = value;
-                OnPropertyChanged("Prize2");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Prize2"));
             }
         }
 
@@ -169,7 +172,7 @@ namespace LuckyDraw
             set
             {
                 _prize3 = value;
-                OnPropertyChanged("Prize3");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Prize3"));
             }
         }
 
@@ -183,7 +186,7 @@ namespace LuckyDraw
             set
             {
                 _prize4 = value;
-                OnPropertyChanged("Prize4");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Prize4"));
             }
         }
 
@@ -197,7 +200,7 @@ namespace LuckyDraw
             set
             {
                 _prize5 = value;
-                OnPropertyChanged("Prize5");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Prize5"));
             }
         }
 
@@ -211,7 +214,7 @@ namespace LuckyDraw
             set
             {
                 _prize6 = value;
-                OnPropertyChanged("Prize6");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Prize6"));
             }
         }
 
@@ -225,7 +228,7 @@ namespace LuckyDraw
             set
             {
                 _prize7 = value;
-                OnPropertyChanged("Prize7");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Prize7"));
             }
         }
 
@@ -239,7 +242,7 @@ namespace LuckyDraw
             set
             {
                 _prize8 = value;
-                OnPropertyChanged("Prize8");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Prize8"));
             }
         }
 
@@ -253,7 +256,7 @@ namespace LuckyDraw
             set
             {
                 _prize9 = value;
-                OnPropertyChanged("Prize9");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Prize9"));
             }
         }
 
@@ -267,7 +270,7 @@ namespace LuckyDraw
             set
             {
                 _prize10 = value;
-                OnPropertyChanged("Prize10");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Prize10"));
             }
         }
 
@@ -281,7 +284,7 @@ namespace LuckyDraw
             set
             {
                 _person1 = value;
-                OnPropertyChanged("Person1");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Person1"));
             }
         }
 
@@ -295,7 +298,7 @@ namespace LuckyDraw
             set
             {
                 _person2 = value;
-                OnPropertyChanged("Person2");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Person2"));
             }
         }
 
@@ -309,7 +312,7 @@ namespace LuckyDraw
             set
             {
                 _person3 = value;
-                OnPropertyChanged("Person3");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Person3"));
             }
         }
 
@@ -323,7 +326,7 @@ namespace LuckyDraw
             set
             {
                 _person4 = value;
-                OnPropertyChanged("Person4");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Person4"));
             }
         }
 
@@ -337,7 +340,7 @@ namespace LuckyDraw
             set
             {
                 _person5 = value;
-                OnPropertyChanged("Person5");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Person5"));
             }
         }
 
@@ -351,7 +354,7 @@ namespace LuckyDraw
             set
             {
                 _person6 = value;
-                OnPropertyChanged("Person6");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Person6"));
             }
         }
 
@@ -365,7 +368,7 @@ namespace LuckyDraw
             set
             {
                 _person7 = value;
-                OnPropertyChanged("Person7");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Person7"));
             }
         }
 
@@ -379,7 +382,7 @@ namespace LuckyDraw
             set
             {
                 _person8 = value;
-                OnPropertyChanged("Person8");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Person8"));
             }
         }
 
@@ -393,7 +396,7 @@ namespace LuckyDraw
             set
             {
                 _person9 = value;
-                OnPropertyChanged("Person9");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Person9"));
             }
         }
 
@@ -407,7 +410,7 @@ namespace LuckyDraw
             set
             {
                 _person10 = value;
-                OnPropertyChanged("Person10");
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Person10"));
             }
         }
         #endregion
@@ -470,6 +473,9 @@ namespace LuckyDraw
         }
     }
 
+    /// <summary>
+    /// 奖品
+    /// </summary>
     public class Prize
     {
         public int ID { get; set; }
@@ -478,6 +484,9 @@ namespace LuckyDraw
         public bool IsUsed { get; set; }
     }
 
+    /// <summary>
+    /// 抽奖者
+    /// </summary>
     public class Person
     {
         public int ID { get; set; }

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
-using Telerik.Windows.Controls;
 
 namespace LuckyDraw
 {
@@ -132,68 +130,6 @@ namespace LuckyDraw
         {
             try
             {
-                //奖品
-                //int rad = _random.Next(0, radCarousePrizel.Items.Count - 1);
-                //radCarousePrizel.BringDataItemIntoView(radCarousePrizel.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePrize2.Items.Count - 1);
-                //radCarousePrize2.BringDataItemIntoView(radCarousePrize2.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePrize3.Items.Count - 1);
-                //radCarousePrize3.BringDataItemIntoView(radCarousePrize3.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePrize4.Items.Count - 1);
-                //radCarousePrize4.BringDataItemIntoView(radCarousePrize4.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePrize5.Items.Count - 1);
-                //radCarousePrize5.BringDataItemIntoView(radCarousePrize5.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePrize6.Items.Count - 1);
-                //radCarousePrize6.BringDataItemIntoView(radCarousePrize6.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePrize7.Items.Count - 1);
-                //radCarousePrize7.BringDataItemIntoView(radCarousePrize7.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePrize8.Items.Count - 1);
-                //radCarousePrize8.BringDataItemIntoView(radCarousePrize8.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePrize9.Items.Count - 1);
-                //radCarousePrize9.BringDataItemIntoView(radCarousePrize9.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePrize10.Items.Count - 1);
-                //radCarousePrize10.BringDataItemIntoView(radCarousePrize10.Items[rad]);
-
-                ////人名
-                //rad = _random.Next(0, radCarousePerson1.Items.Count - 1);
-                //radCarousePerson1.BringDataItemIntoView(radCarousePerson1.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePerson2.Items.Count - 1);
-                //radCarousePerson2.BringDataItemIntoView(radCarousePerson2.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePerson3.Items.Count - 1);
-                //radCarousePerson3.BringDataItemIntoView(radCarousePerson3.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePerson4.Items.Count - 1);
-                //radCarousePerson4.BringDataItemIntoView(radCarousePerson4.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePerson5.Items.Count - 1);
-                //radCarousePerson5.BringDataItemIntoView(radCarousePerson5.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePerson6.Items.Count - 1);
-                //radCarousePerson6.BringDataItemIntoView(radCarousePerson6.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePerson7.Items.Count - 1);
-                //radCarousePerson7.BringDataItemIntoView(radCarousePerson7.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePerson8.Items.Count - 1);
-                //radCarousePerson8.BringDataItemIntoView(radCarousePerson8.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePerson9.Items.Count - 1);
-                //radCarousePerson9.BringDataItemIntoView(radCarousePerson9.Items[rad]);
-
-                //rad = _random.Next(0, radCarousePerson10.Items.Count - 1);
-                //radCarousePerson10.BringDataItemIntoView(radCarousePerson10.Items[rad]);
-
                 //奖品
                 int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 _mainViewModel.Prize1 = _mainViewModel.PrizesList[rad].Name;
