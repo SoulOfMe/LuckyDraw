@@ -14,140 +14,536 @@
         <ImageBrush ImageSource="pack://application:,,,/Image/background.jpg"/>
     </telerik:RadWindow.Background>-->
     <Window.Background>
-        <ImageBrush ImageSource="pack://application:,,,/Image/background.jpg"/>
+        <ImageBrush ImageSource="pack://application:,,,/Image/background2.jpg"/>
     </Window.Background>
 
-    <Grid>
+    <Grid Margin="30">
         <Grid.Resources>
-            <DataTemplate x:Key="itemTemplate">
-                <TextBlock Text="{Binding Name}"/>
+            <DataTemplate x:Key="prizeTemplate">
+                <Grid Width="100" Height="100">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
+                    </Grid.Background>
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Margin="0 30 0 0"
+                               Text="{Binding Name}"
+                               Background="White"
+                               FontSize="14"/>
+                </Grid>
             </DataTemplate>
+
+            <DataTemplate x:Key="personTemplate">
+                <Grid Width="100" Height="100">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
+                    </Grid.Background>
+                    <TextBlock VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"
+                               Text="{Binding Name}"
+                               Background="Transparent"
+                               FontSize="14"/>
+                </Grid>
+            </DataTemplate>
+
         </Grid.Resources>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <telerik:RadCarousel x:Name="radCarousePrizel"
+
+        <!--奖品-->
+        <Grid Width="150" Height="150"
+              Grid.Row="0" Grid.Column="0">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Margin="0 30 0 0"
+                               Text="{Binding Prize1}"
+                               Background="White"
+                               FontSize="16"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="0" Grid.Column="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Margin="0 30 0 0"
+                               Text="{Binding Prize2}"
+                               Background="White"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="0" Grid.Column="2">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Margin="0 30 0 0"
+                               Text="{Binding Prize3}"
+                               Background="White"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="0" Grid.Column="3">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Margin="0 30 0 0"
+                               Text="{Binding Prize4}"
+                               Background="White"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="0" Grid.Column="4">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Margin="0 30 0 0"
+                               Text="{Binding Prize5}"
+                               Background="White"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="0" Grid.Column="5">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Margin="0 30 0 0"
+                               Text="{Binding Prize6}"
+                               Background="White"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="0" Grid.Column="6">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Margin="0 30 0 0"
+                               Text="{Binding Prize7}"
+                               Background="White"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="0" Grid.Column="7">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Margin="0 30 0 0"
+                               Text="{Binding Prize8}"
+                               Background="White"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="0" Grid.Column="8">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Margin="0 30 0 0"
+                               Text="{Binding Prize9}"
+                               Background="White"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="0" Grid.Column="9">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Margin="0 30 0 0"
+                               Text="{Binding Prize10}"
+                               Background="White"
+                               FontSize="14"/>
+        </Grid>
+
+        <!--人名-->
+        <Grid Width="150" Height="150"
+              Grid.Row="2" Grid.Column="0">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"
+                               Text="{Binding Person1}"
+                               Background="Transparent"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="2" Grid.Column="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"
+                               Text="{Binding Person2}"
+                               Background="Transparent"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="2" Grid.Column="2">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"
+                               Text="{Binding Person3}"
+                               Background="Transparent"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="2" Grid.Column="3">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"
+                               Text="{Binding Person4}"
+                               Background="Transparent"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="2" Grid.Column="4">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"
+                               Text="{Binding Person5}"
+                               Background="Transparent"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="2" Grid.Column="5">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"
+                               Text="{Binding Person6}"
+                               Background="Transparent"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="2" Grid.Column="6">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"
+                               Text="{Binding Person7}"
+                               Background="Transparent"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="2" Grid.Column="7">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"
+                               Text="{Binding Person8}"
+                               Background="Transparent"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="2" Grid.Column="8">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"
+                               Text="{Binding Person9}"
+                               Background="Transparent"
+                               FontSize="14"/>
+        </Grid>
+        <Grid Width="150" Height="150"
+              Grid.Row="2" Grid.Column="9">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
+            </Grid.Background>
+            <TextBlock VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"
+                               Text="{Binding Person10}"
+                               Background="Transparent"
+                               FontSize="14"/>
+        </Grid>
+
+        <!--箭头-->
+        <Image Source="pack://application:,,,/Image/arrow.png"
+               Grid.Row="1" Grid.Column="0"/>
+        <Image Source="pack://application:,,,/Image/arrow.png"
+               Grid.Row="1" Grid.Column="1"/>
+        <Image Source="pack://application:,,,/Image/arrow.png"
+               Grid.Row="1" Grid.Column="2"/>
+        <Image Source="pack://application:,,,/Image/arrow.png"
+               Grid.Row="1" Grid.Column="3"/>
+        <Image Source="pack://application:,,,/Image/arrow.png"
+               Grid.Row="1" Grid.Column="4"/>
+        <Image Source="pack://application:,,,/Image/arrow.png"
+               Grid.Row="1" Grid.Column="5"/>
+        <Image Source="pack://application:,,,/Image/arrow.png"
+               Grid.Row="1" Grid.Column="6"/>
+        <Image Source="pack://application:,,,/Image/arrow.png"
+               Grid.Row="1" Grid.Column="7"/>
+        <Image Source="pack://application:,,,/Image/arrow.png"
+               Grid.Row="1" Grid.Column="8"/>
+        <Image Source="pack://application:,,,/Image/arrow.png"
+               Grid.Row="1" Grid.Column="9"/>
+        <Image Source="pack://application:,,,/Image/arrow.png"
+               Grid.Row="1" Grid.Column="10"/>
+
+        <!--奖品-->
+        <!--<telerik:RadCarousel x:Name="radCarousePrizel"
+                             Grid.Row="0" Grid.Column="0"
                              HorizontalAlignment="Stretch"
                              VerticalAlignment="Stretch"
                              ItemsSource="{Binding PrizesList}"
-                             ItemTemplate="{StaticResource itemTemplate}"
+                             ItemTemplate="{StaticResource prizeTemplate}"
                              Background="Transparent"
                              HorizontalScrollBarVisibility="Hidden"
                              VerticalScrollBarVisibility="Hidden"
-                             IsHitTestVisible="False"/>
-
-        <telerik:RadCarousel x:Name="radCarousePerson1" 
-                             Grid.Row="0" Grid.Column="1" 
-                             Margin="5 0 0 0" 
-                             HorizontalAlignment="Stretch"
-                             VerticalAlignment="Stretch"
-                             ItemsSource="{Binding PeopleList}"
-                             ItemTemplate="{StaticResource itemTemplate}"
-                             Background="Transparent"
-                             HorizontalScrollBarVisibility="Hidden"
-                             VerticalScrollBarVisibility="Hidden"
-                             IsHitTestVisible="False"/>
+                             IsHitTestVisible="True"/>
 
         <telerik:RadCarousel x:Name="radCarousePrize2"
-                             Grid.Row="1" Grid.Column="0"
+                             Grid.Row="0" Grid.Column="1"
                              HorizontalAlignment="Stretch"
                              VerticalAlignment="Stretch"
                              ItemsSource="{Binding PrizesList}"
-                             ItemTemplate="{StaticResource itemTemplate}"
-                             Background="Transparent"
-                             HorizontalScrollBarVisibility="Hidden"
-                             VerticalScrollBarVisibility="Hidden"
-                             IsHitTestVisible="False"/>
-
-        <telerik:RadCarousel x:Name="radCarousePerson2" 
-                             Grid.Row="1" Grid.Column="1"
-                             Margin="5 0 0 0" 
-                             HorizontalAlignment="Stretch"
-                             VerticalAlignment="Stretch"
-                             ItemsSource="{Binding PeopleList}"
-                             ItemTemplate="{StaticResource itemTemplate}"
+                             ItemTemplate="{StaticResource prizeTemplate}"
                              Background="Transparent"
                              HorizontalScrollBarVisibility="Hidden"
                              VerticalScrollBarVisibility="Hidden"
                              IsHitTestVisible="False"/>
 
         <telerik:RadCarousel x:Name="radCarousePrize3"
-                             Grid.Row="2" Grid.Column="0"
+                             Grid.Row="0" Grid.Column="2"
                              HorizontalAlignment="Stretch"
                              VerticalAlignment="Stretch"
                              ItemsSource="{Binding PrizesList}"
-                             ItemTemplate="{StaticResource itemTemplate}"
-                             Background="Transparent"
-                             HorizontalScrollBarVisibility="Hidden"
-                             VerticalScrollBarVisibility="Hidden"
-                             IsHitTestVisible="False"/>
-
-        <telerik:RadCarousel x:Name="radCarousePerson3" 
-                             Grid.Row="2" Grid.Column="1"
-                             Margin="5 0 0 0" 
-                             HorizontalAlignment="Stretch"
-                             VerticalAlignment="Stretch"
-                             ItemsSource="{Binding PeopleList}"
-                             ItemTemplate="{StaticResource itemTemplate}"
+                             ItemTemplate="{StaticResource prizeTemplate}"
                              Background="Transparent"
                              HorizontalScrollBarVisibility="Hidden"
                              VerticalScrollBarVisibility="Hidden"
                              IsHitTestVisible="False"/>
 
         <telerik:RadCarousel x:Name="radCarousePrize4"
-                             Grid.Row="3" Grid.Column="0"
+                             Grid.Row="0" Grid.Column="3"
                              HorizontalAlignment="Stretch"
                              VerticalAlignment="Stretch"
                              ItemsSource="{Binding PrizesList}"
-                             ItemTemplate="{StaticResource itemTemplate}"
-                             Background="Transparent"
-                             HorizontalScrollBarVisibility="Hidden"
-                             VerticalScrollBarVisibility="Hidden"
-                             IsHitTestVisible="False"/>
-
-        <telerik:RadCarousel x:Name="radCarousePerson4" 
-                             Grid.Row="3" Grid.Column="1"
-                             Margin="5 0 0 0" 
-                             HorizontalAlignment="Stretch"
-                             VerticalAlignment="Stretch"
-                             ItemsSource="{Binding PeopleList}"
-                             ItemTemplate="{StaticResource itemTemplate}"
+                             ItemTemplate="{StaticResource prizeTemplate}"
                              Background="Transparent"
                              HorizontalScrollBarVisibility="Hidden"
                              VerticalScrollBarVisibility="Hidden"
                              IsHitTestVisible="False"/>
 
         <telerik:RadCarousel x:Name="radCarousePrize5"
-                             Grid.Row="4" Grid.Column="0"
+                             Grid.Row="0" Grid.Column="4"
                              HorizontalAlignment="Stretch"
                              VerticalAlignment="Stretch"
                              ItemsSource="{Binding PrizesList}"
-                             ItemTemplate="{StaticResource itemTemplate}"
+                             ItemTemplate="{StaticResource prizeTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePrize6"
+                             Grid.Row="0" Grid.Column="5"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PrizesList}"
+                             ItemTemplate="{StaticResource prizeTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePrize7"
+                             Grid.Row="0" Grid.Column="6"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PrizesList}"
+                             ItemTemplate="{StaticResource prizeTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePrize8"
+                             Grid.Row="0" Grid.Column="7"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PrizesList}"
+                             ItemTemplate="{StaticResource prizeTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePrize9"
+                             Grid.Row="0" Grid.Column="8"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PrizesList}"
+                             ItemTemplate="{StaticResource prizeTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePrize10" 
+                             Grid.Row="0" Grid.Column="9"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PrizesList}"
+                             ItemTemplate="{StaticResource prizeTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>-->
+
+        <!--抽奖人-->
+        <!--<telerik:RadCarousel x:Name="radCarousePerson1" 
+                             Grid.Row="2" Grid.Column="0" 
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PeopleList}"
+                             ItemTemplate="{StaticResource personTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePerson2" 
+                             Grid.Row="2" Grid.Column="1"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PeopleList}"
+                             ItemTemplate="{StaticResource personTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePerson3" 
+                             Grid.Row="2" Grid.Column="2"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PeopleList}"
+                             ItemTemplate="{StaticResource personTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePerson4" 
+                             Grid.Row="2" Grid.Column="3"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PeopleList}"
+                             ItemTemplate="{StaticResource personTemplate}"
                              Background="Transparent"
                              HorizontalScrollBarVisibility="Hidden"
                              VerticalScrollBarVisibility="Hidden"
                              IsHitTestVisible="False"/>
 
         <telerik:RadCarousel x:Name="radCarousePerson5" 
-                             Grid.Row="4" Grid.Column="1"
-                             Margin="5 0 0 0" 
+                             Grid.Row="2" Grid.Column="4"
                              HorizontalAlignment="Stretch"
                              VerticalAlignment="Stretch"
                              ItemsSource="{Binding PeopleList}"
-                             ItemTemplate="{StaticResource itemTemplate}"
+                             ItemTemplate="{StaticResource personTemplate}"
                              Background="Transparent"
                              HorizontalScrollBarVisibility="Hidden"
                              VerticalScrollBarVisibility="Hidden"
                              IsHitTestVisible="False"/>
 
+        <telerik:RadCarousel x:Name="radCarousePerson6" 
+                             Grid.Row="2" Grid.Column="5"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PeopleList}"
+                             ItemTemplate="{StaticResource personTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePerson7" 
+                             Grid.Row="2" Grid.Column="6"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PeopleList}"
+                             ItemTemplate="{StaticResource personTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePerson8" 
+                             Grid.Row="2" Grid.Column="7"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PeopleList}"
+                             ItemTemplate="{StaticResource personTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePerson9" 
+                             Grid.Row="2" Grid.Column="8"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PeopleList}"
+                             ItemTemplate="{StaticResource personTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>
+
+        <telerik:RadCarousel x:Name="radCarousePerson10"
+                             Grid.Row="2" Grid.Column="9"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             ItemsSource="{Binding PeopleList}"
+                             ItemTemplate="{StaticResource personTemplate}"
+                             Background="Transparent"
+                             HorizontalScrollBarVisibility="Hidden"
+                             VerticalScrollBarVisibility="Hidden"
+                             IsHitTestVisible="False"/>-->
     </Grid>
 </Window>

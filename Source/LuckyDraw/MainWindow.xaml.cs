@@ -99,7 +99,7 @@ namespace LuckyDraw
                 this.WindowState = WindowState.Normal;
                 this.WindowStyle = WindowStyle.None;
                 this.ResizeMode = ResizeMode.NoResize;
-                this.Topmost = true;
+                //this.Topmost = true;
                 //this.IsTopmost = true;
                 //this.CanClose = false;
                 //this.CanMove = false;
@@ -132,35 +132,129 @@ namespace LuckyDraw
         {
             try
             {
-                int rad = _random.Next(0, radCarousePrizel.Items.Count - 1);
-                radCarousePrizel.BringDataItemIntoView(radCarousePrizel.Items[rad]);
+                //奖品
+                //int rad = _random.Next(0, radCarousePrizel.Items.Count - 1);
+                //radCarousePrizel.BringDataItemIntoView(radCarousePrizel.Items[rad]);
 
-                rad = _random.Next(0, radCarousePrize2.Items.Count - 1);
-                radCarousePrize2.BringDataItemIntoView(radCarousePrize2.Items[rad]);
+                //rad = _random.Next(0, radCarousePrize2.Items.Count - 1);
+                //radCarousePrize2.BringDataItemIntoView(radCarousePrize2.Items[rad]);
 
-                rad = _random.Next(0, radCarousePrize3.Items.Count - 1);
-                radCarousePrize3.BringDataItemIntoView(radCarousePrize3.Items[rad]);
+                //rad = _random.Next(0, radCarousePrize3.Items.Count - 1);
+                //radCarousePrize3.BringDataItemIntoView(radCarousePrize3.Items[rad]);
 
-                rad = _random.Next(0, radCarousePrize4.Items.Count - 1);
-                radCarousePrize4.BringDataItemIntoView(radCarousePrize4.Items[rad]);
+                //rad = _random.Next(0, radCarousePrize4.Items.Count - 1);
+                //radCarousePrize4.BringDataItemIntoView(radCarousePrize4.Items[rad]);
 
-                rad = _random.Next(0, radCarousePrize5.Items.Count - 1);
-                radCarousePrize5.BringDataItemIntoView(radCarousePrize5.Items[rad]);
+                //rad = _random.Next(0, radCarousePrize5.Items.Count - 1);
+                //radCarousePrize5.BringDataItemIntoView(radCarousePrize5.Items[rad]);
 
-                rad = _random.Next(0, radCarousePerson1.Items.Count - 1);
-                radCarousePerson1.BringDataItemIntoView(radCarousePerson1.Items[rad]);
+                //rad = _random.Next(0, radCarousePrize6.Items.Count - 1);
+                //radCarousePrize6.BringDataItemIntoView(radCarousePrize6.Items[rad]);
 
-                rad = _random.Next(0, radCarousePerson2.Items.Count - 1);
-                radCarousePerson2.BringDataItemIntoView(radCarousePerson2.Items[rad]);
+                //rad = _random.Next(0, radCarousePrize7.Items.Count - 1);
+                //radCarousePrize7.BringDataItemIntoView(radCarousePrize7.Items[rad]);
 
-                rad = _random.Next(0, radCarousePerson3.Items.Count - 1);
-                radCarousePerson3.BringDataItemIntoView(radCarousePerson3.Items[rad]);
+                //rad = _random.Next(0, radCarousePrize8.Items.Count - 1);
+                //radCarousePrize8.BringDataItemIntoView(radCarousePrize8.Items[rad]);
 
-                rad = _random.Next(0, radCarousePerson4.Items.Count - 1);
-                radCarousePerson4.BringDataItemIntoView(radCarousePerson4.Items[rad]);
+                //rad = _random.Next(0, radCarousePrize9.Items.Count - 1);
+                //radCarousePrize9.BringDataItemIntoView(radCarousePrize9.Items[rad]);
 
-                rad = _random.Next(0, radCarousePerson5.Items.Count - 1);
-                radCarousePerson5.BringDataItemIntoView(radCarousePerson5.Items[rad]);
+                //rad = _random.Next(0, radCarousePrize10.Items.Count - 1);
+                //radCarousePrize10.BringDataItemIntoView(radCarousePrize10.Items[rad]);
+
+                ////人名
+                //rad = _random.Next(0, radCarousePerson1.Items.Count - 1);
+                //radCarousePerson1.BringDataItemIntoView(radCarousePerson1.Items[rad]);
+
+                //rad = _random.Next(0, radCarousePerson2.Items.Count - 1);
+                //radCarousePerson2.BringDataItemIntoView(radCarousePerson2.Items[rad]);
+
+                //rad = _random.Next(0, radCarousePerson3.Items.Count - 1);
+                //radCarousePerson3.BringDataItemIntoView(radCarousePerson3.Items[rad]);
+
+                //rad = _random.Next(0, radCarousePerson4.Items.Count - 1);
+                //radCarousePerson4.BringDataItemIntoView(radCarousePerson4.Items[rad]);
+
+                //rad = _random.Next(0, radCarousePerson5.Items.Count - 1);
+                //radCarousePerson5.BringDataItemIntoView(radCarousePerson5.Items[rad]);
+
+                //rad = _random.Next(0, radCarousePerson6.Items.Count - 1);
+                //radCarousePerson6.BringDataItemIntoView(radCarousePerson6.Items[rad]);
+
+                //rad = _random.Next(0, radCarousePerson7.Items.Count - 1);
+                //radCarousePerson7.BringDataItemIntoView(radCarousePerson7.Items[rad]);
+
+                //rad = _random.Next(0, radCarousePerson8.Items.Count - 1);
+                //radCarousePerson8.BringDataItemIntoView(radCarousePerson8.Items[rad]);
+
+                //rad = _random.Next(0, radCarousePerson9.Items.Count - 1);
+                //radCarousePerson9.BringDataItemIntoView(radCarousePerson9.Items[rad]);
+
+                //rad = _random.Next(0, radCarousePerson10.Items.Count - 1);
+                //radCarousePerson10.BringDataItemIntoView(radCarousePerson10.Items[rad]);
+
+                //奖品
+                int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
+                _mainViewModel.Prize1 = _mainViewModel.PrizesList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
+                _mainViewModel.Prize2 = _mainViewModel.PrizesList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
+                _mainViewModel.Prize3 = _mainViewModel.PrizesList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
+                _mainViewModel.Prize4 = _mainViewModel.PrizesList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
+                _mainViewModel.Prize5 = _mainViewModel.PrizesList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
+                _mainViewModel.Prize6 = _mainViewModel.PrizesList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
+                _mainViewModel.Prize7 = _mainViewModel.PrizesList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
+                _mainViewModel.Prize8 = _mainViewModel.PrizesList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
+                _mainViewModel.Prize9 = _mainViewModel.PrizesList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
+                _mainViewModel.Prize10 = _mainViewModel.PrizesList[rad].Name;
+
+                //人名
+                rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Person1 = _mainViewModel.PeopleList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Person2 = _mainViewModel.PeopleList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Person3 = _mainViewModel.PeopleList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Person4 = _mainViewModel.PeopleList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Person5 = _mainViewModel.PeopleList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Person6 = _mainViewModel.PeopleList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Person7 = _mainViewModel.PeopleList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Person8 = _mainViewModel.PeopleList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Person9 = _mainViewModel.PeopleList[rad].Name;
+
+                rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Person10 = _mainViewModel.PeopleList[rad].Name;
             }
             catch (Exception ex) { }
         }
@@ -174,75 +268,145 @@ namespace LuckyDraw
             var person1 = _mainViewModel.RandomPerson;
             if (prize1 != null && person1 != null)
             {
+                _mainViewModel.Prize1 = prize1.Name;
+                _mainViewModel.Person1 = person1.Name;
                 drawList.Add(prize1, person1);
-                radCarousePrizel.BringDataItemIntoView(prize1);
-                radCarousePerson1.BringDataItemIntoView(person1);
             }
             else
             {
-                radCarousePrizel.Visibility = Visibility.Collapsed;
-                radCarousePerson1.Visibility = Visibility.Collapsed;
+                _mainViewModel.Prize1 = "";
+                _mainViewModel.Person1 = "";
             }
 
             var prize2 = _mainViewModel.RandomPrize;
             var person2 = _mainViewModel.RandomPerson;
             if (prize2 != null && person2 != null)
             {
+                _mainViewModel.Prize2 = prize2.Name;
+                _mainViewModel.Person2 = person2.Name;
                 drawList.Add(prize2, person2);
-                radCarousePrize2.BringDataItemIntoView(prize2);
-                radCarousePerson2.BringDataItemIntoView(person2);
             }
             else
             {
-                radCarousePrize2.Visibility = Visibility.Collapsed;
-                radCarousePerson2.Visibility = Visibility.Collapsed;
+                _mainViewModel.Prize2 = "";
+                _mainViewModel.Person2 = "";
             }
 
             var prize3 = _mainViewModel.RandomPrize;
             var person3 = _mainViewModel.RandomPerson;
             if (prize3 != null && person3 != null)
             {
+                _mainViewModel.Prize3 = prize3.Name;
+                _mainViewModel.Person3 = person3.Name;
                 drawList.Add(prize3, person3);
-                radCarousePrize3.BringDataItemIntoView(prize3);
-                radCarousePerson3.BringDataItemIntoView(person3);
             }
             else
             {
-                radCarousePrize3.Visibility = Visibility.Collapsed;
-                radCarousePerson3.Visibility = Visibility.Collapsed;
+                _mainViewModel.Prize3 = "";
+                _mainViewModel.Person3 = "";
             }
 
             var prize4 = _mainViewModel.RandomPrize;
             var person4 = _mainViewModel.RandomPerson;
             if (prize4 != null && person4 != null)
             {
+                _mainViewModel.Prize4 = prize4.Name;
+                _mainViewModel.Person4 = person4.Name;
                 drawList.Add(prize4, person4);
-                radCarousePrizel.BringDataItemIntoView(prize4);
-                radCarousePerson1.BringDataItemIntoView(person4);
             }
             else
             {
-                radCarousePrize4.Visibility = Visibility.Collapsed;
-                radCarousePerson4.Visibility = Visibility.Collapsed;
+                _mainViewModel.Prize4 = "";
+                _mainViewModel.Person4 = "";
             }
 
             var prize5 = _mainViewModel.RandomPrize;
             var person5 = _mainViewModel.RandomPerson;
             if (prize5 != null && person5 != null)
             {
+                _mainViewModel.Prize5 = prize5.Name;
+                _mainViewModel.Person5 = person5.Name;
                 drawList.Add(prize5, person5);
-                radCarousePrize5.BringDataItemIntoView(prize5);
-                radCarousePerson5.BringDataItemIntoView(person5);
             }
             else
             {
-                radCarousePrize5.Visibility = Visibility.Collapsed;
-                radCarousePerson5.Visibility = Visibility.Collapsed;
+                _mainViewModel.Prize5 = "";
+                _mainViewModel.Person5 = "";
+            }
+
+            var prize6 = _mainViewModel.RandomPrize;
+            var person6 = _mainViewModel.RandomPerson;
+            if (prize6 != null && person6 != null)
+            {
+                _mainViewModel.Prize6 = prize6.Name;
+                _mainViewModel.Person6 = person6.Name;
+                drawList.Add(prize6, person6);
+            }
+            else
+            {
+                _mainViewModel.Prize6 = "";
+                _mainViewModel.Person6 = "";
+            }
+
+            var prize7 = _mainViewModel.RandomPrize;
+            var person7 = _mainViewModel.RandomPerson;
+            if (prize7 != null && person7 != null)
+            {
+                _mainViewModel.Prize7 = prize7.Name;
+                _mainViewModel.Person7 = person7.Name;
+                drawList.Add(prize7, person7);
+            }
+            else
+            {
+                _mainViewModel.Prize7 = "";
+                _mainViewModel.Person7 = "";
+            }
+
+            var prize8 = _mainViewModel.RandomPrize;
+            var person8 = _mainViewModel.RandomPerson;
+            if (prize8 != null && person8 != null)
+            {
+                _mainViewModel.Prize8 = prize8.Name;
+                _mainViewModel.Person8 = person8.Name;
+                drawList.Add(prize8, person8);
+            }
+            else
+            {
+                _mainViewModel.Prize8 = "";
+                _mainViewModel.Person8 = "";
+            }
+
+            var prize9 = _mainViewModel.RandomPrize;
+            var person9 = _mainViewModel.RandomPerson;
+            if (prize9 != null && person9 != null)
+            {
+                _mainViewModel.Prize9 = prize9.Name;
+                _mainViewModel.Person9 = person9.Name;
+                drawList.Add(prize9, person9);
+            }
+            else
+            {
+                _mainViewModel.Prize9 = "";
+                _mainViewModel.Person9 = "";
+            }
+
+            var prize10 = _mainViewModel.RandomPrize;
+            var person10 = _mainViewModel.RandomPerson;
+            if (prize10 != null && person10 != null)
+            {
+                _mainViewModel.Prize10 = prize10.Name;
+                _mainViewModel.Person10 = person10.Name;
+                drawList.Add(prize10, person10);
+            }
+            else
+            {
+                _mainViewModel.Prize10 = "";
+                _mainViewModel.Person10 = "";
             }
 
             if (!_mainViewModel.WriteData(drawList))
             {
-                foreach(var i in drawList)
+                foreach (var i in drawList)
                 {
                     i.Key.IsUsed = false;
                     i.Value.IsUsed = false;
