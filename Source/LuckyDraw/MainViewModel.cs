@@ -18,8 +18,8 @@ namespace LuckyDraw
 
         public MainViewModel()
         {
-            //LoadData();
-            TestData();
+            LoadData();
+            //TestData();
             _random = new Random();
         }
 
@@ -567,7 +567,85 @@ namespace LuckyDraw
 
         private void LoadData()
         {
-            //todo:读取奖品，抽奖人，中奖列表三个csv文件，更新数据列表
+            try
+            {
+                //读取奖品，抽奖人，中奖列表三个csv文件，更新数据列表
+                List<int> resultPrize = new List<int>();
+                List<int> resultPeople = new List<int>();
+                string line;
+                if (File.Exists("result.csv"))
+                {
+                    StreamReader resultSR = new StreamReader("result.csv");
+                    while ((line = resultSR.ReadLine()) != null)
+                    {
+                        var list = line.Split(',');
+                        int prizeID = -1;
+                        int personID = -1;
+                        if (list.Count() >= 2)
+                        {
+                            prizeID = Convert.ToInt32(list[0]);
+                            personID = Convert.ToInt32(list[1]);
+                        }
+
+                        resultPrize.Add(prizeID);
+                        resultPeople.Add(personID);
+                    }
+                }
+
+                if (File.Exists("prizelist.csv"))
+                {
+                    StreamReader prizeSR = new StreamReader("prizelist.csv");
+                    int prizeNum = 1;
+                    while ((line = prizeSR.ReadLine()) != null)
+                    {
+                        bool isUsd = false;
+                        if (resultPrize.Contains(prizeNum))
+                        {
+                            isUsd = true;
+                        }
+
+                        _prizesList.Add(new Prize()
+                        {
+                            ID = prizeNum,
+                            Name = line.Split(',').FirstOrDefault(),
+                            IsUsed = isUsd
+                        });
+                        prizeNum++;
+                    }
+                }
+
+                if (File.Exists("peoplelist.csv"))
+                {
+                    StreamReader peopleSR = new StreamReader("peoplelist.csv");
+                    int personNum = 1;
+                    while ((line = peopleSR.ReadLine()) != null)
+                    {
+                        var list = line.Split(',');
+                        string departname = "";
+                        string name = "";
+                        bool isUse = false;
+                        if (list.Count() >= 2)
+                        {
+                            departname = list[0];
+                            name = list[1];
+                        }
+                        if (resultPeople.Contains(personNum))
+                        {
+                            isUse = true;
+                        }
+
+                        _peopleList.Add(new Person()
+                        {
+                            ID = personNum,
+                            Department = departname,
+                            Name = name,
+                            IsUsed = isUse
+                        });
+                        personNum++;
+                    }
+                }
+            }
+            catch (Exception e) { }
         }
 
         private void TestData()
