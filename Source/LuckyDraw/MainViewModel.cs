@@ -133,6 +133,16 @@ namespace LuckyDraw
         private string _person8 = "";
         private string _person9 = "";
         private string _person10 = "";
+        private string _department1 = "";
+        private string _department2 = "";
+        private string _department3 = "";
+        private string _department4 = "";
+        private string _department5 = "";
+        private string _department6 = "";
+        private string _department7 = "";
+        private string _department8 = "";
+        private string _department9 = "";
+        private string _department10 = "";
 
         public string Prize1
         {
@@ -278,7 +288,7 @@ namespace LuckyDraw
         {
             get
             {
-                return "恭喜你\n\r" + _person1;
+                return _person1;
             }
 
             set
@@ -413,6 +423,146 @@ namespace LuckyDraw
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Person10"));
             }
         }
+
+        public string Department1
+        {
+            get
+            {
+                return _department1;
+            }
+
+            set
+            {
+                _department1 = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Department1"));
+            }
+        }
+
+        public string Department2
+        {
+            get
+            {
+                return _department2;
+            }
+
+            set
+            {
+                _department2 = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Department2"));
+            }
+        }
+
+        public string Department3
+        {
+            get
+            {
+                return _department3;
+            }
+
+            set
+            {
+                _department3 = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Department3"));
+            }
+        }
+
+        public string Department4
+        {
+            get
+            {
+                return _department4;
+            }
+
+            set
+            {
+                _department4 = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Department4"));
+            }
+        }
+
+        public string Department5
+        {
+            get
+            {
+                return _department5;
+            }
+
+            set
+            {
+                _department5 = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Department5"));
+            }
+        }
+
+        public string Department6
+        {
+            get
+            {
+                return _department6;
+            }
+
+            set
+            {
+                _department6 = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Department6"));
+            }
+        }
+
+        public string Department7
+        {
+            get
+            {
+                return _department7;
+            }
+
+            set
+            {
+                _department7 = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Department7"));
+            }
+        }
+
+        public string Department8
+        {
+            get
+            {
+                return _department8;
+            }
+
+            set
+            {
+                _department8 = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Department8"));
+            }
+        }
+
+        public string Department9
+        {
+            get
+            {
+                return _department9;
+            }
+
+            set
+            {
+                _department9 = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Department9"));
+            }
+        }
+
+        public string Department10
+        {
+            get
+            {
+                return _department10;
+            }
+
+            set
+            {
+                _department10 = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Department10"));
+            }
+        }
         #endregion
 
         private void LoadData()
@@ -430,16 +580,17 @@ namespace LuckyDraw
                 _prizesList.Add(new Prize()
                 {
                     ID = i,
-                    Name = "Prize_" + i.ToString(),
+                    Name = "test_Prize_" + i.ToString(),
                     IsUsed = false
                 });
             }
 
-            for (int i = 1; i <= 1000; i++)
+            for (int i = 1; i <= 100; i++)
             {
                 _peopleList.Add(new Person()
                 {
                     ID = i,
+                    Department = "软件部" + i.ToString(),
                     Name = "Persion_" + i.ToString(),
                     IsUsed = false
                 });
@@ -455,7 +606,7 @@ namespace LuckyDraw
                 foreach (var i in list)
                 {
                     string temp = i.Key.ID + "," + i.Value.ID + ","
-                        + i.Key.Name + "," + i.Value.Name;
+                        + i.Key.Name + "," + i.Value.Department + "," + i.Value.Name;
                     writer.WriteLine(temp);
                 }
 
@@ -490,6 +641,7 @@ namespace LuckyDraw
     public class Person
     {
         public int ID { get; set; }
+        public string Department { get; set; }
         public string Name { get; set; }
         public bool IsUsed { get; set; }
     }

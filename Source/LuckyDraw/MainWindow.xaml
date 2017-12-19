@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d" 
         Loaded="Window_Loaded" 
         Keyboard.PreviewKeyDown="Window_PreviewKeyDown"
@@ -12,37 +13,14 @@
         <ImageBrush ImageSource="pack://application:,,,/Image/background2.jpg"/>
     </Window.Background>
 
+    <Window.Resources>
+        <s:Double x:Key="imageWidth">150</s:Double>
+        <s:Double x:Key="imageHeight">150</s:Double>
+        <s:Double x:Key="prizeTextWidth">100</s:Double>
+        <s:Double x:Key="prizeTextHeight">30</s:Double>
+    </Window.Resources>
+
     <Grid Margin="30">
-        <Grid.Resources>
-            <DataTemplate x:Key="prizeTemplate">
-                <Grid Width="100" Height="100">
-                    <Grid.Background>
-                        <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
-                    </Grid.Background>
-                    <TextBlock VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Margin="0 30 0 0"
-                               Text="{Binding Name}"
-                               Background="White"
-                               FontSize="14"/>
-                </Grid>
-            </DataTemplate>
-
-            <DataTemplate x:Key="personTemplate">
-                <Grid Width="100" Height="100">
-                    <Grid.Background>
-                        <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
-                    </Grid.Background>
-                    <TextBlock VerticalAlignment="Center" 
-                               HorizontalAlignment="Center"
-                               Text="{Binding Name}"
-                               Background="Transparent"
-                               FontSize="14"/>
-                </Grid>
-            </DataTemplate>
-
-        </Grid.Resources>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -62,237 +40,407 @@
         </Grid.ColumnDefinitions>
 
         <!--奖品-->
-        <Grid Width="150" Height="150"
+        <Grid Width="{StaticResource imageWidth}" Height="{StaticResource imageHeight}"
               Grid.Row="0" Grid.Column="0">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
             </Grid.Background>
             <TextBlock VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Margin="0 30 0 0"
-                               Text="{Binding Prize1}"
-                               Background="White"
-                               FontSize="16"/>
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center" 
+                       Margin="0 30 0 0" Padding="5"
+                       Text="{Binding Prize1}"
+                       MinWidth="{StaticResource prizeTextWidth}"
+                       Height="{StaticResource prizeTextHeight}"
+                       Background="White"
+                       FontSize="16"/>
         </Grid>
-        <Grid Width="150" Height="150"
+        <Grid Width="{StaticResource imageWidth}" Height="{StaticResource imageHeight}"
               Grid.Row="0" Grid.Column="1">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
             </Grid.Background>
             <TextBlock VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Margin="0 30 0 0"
-                               Text="{Binding Prize2}"
-                               Background="White"
-                               FontSize="14"/>
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       Margin="0 30 0 0" Padding="5"
+                       Text="{Binding Prize2}"
+                       MinWidth="{StaticResource prizeTextWidth}"
+                       Height="{StaticResource prizeTextHeight}"
+                       Background="White"
+                       FontSize="16"/>
         </Grid>
-        <Grid Width="150" Height="150"
+        <Grid Width="{StaticResource imageWidth}" Height="{StaticResource imageHeight}"
               Grid.Row="0" Grid.Column="2">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
             </Grid.Background>
             <TextBlock VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Margin="0 30 0 0"
-                               Text="{Binding Prize3}"
-                               Background="White"
-                               FontSize="14"/>
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       Margin="0 30 0 0" Padding="5"
+                       Text="{Binding Prize3}"
+                       MinWidth="{StaticResource prizeTextWidth}"
+                       Height="{StaticResource prizeTextHeight}"
+                       Background="White"
+                       FontSize="16"/>
         </Grid>
-        <Grid Width="150" Height="150"
+        <Grid Width="{StaticResource imageWidth}" Height="{StaticResource imageHeight}"
               Grid.Row="0" Grid.Column="3">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
             </Grid.Background>
             <TextBlock VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Margin="0 30 0 0"
-                               Text="{Binding Prize4}"
-                               Background="White"
-                               FontSize="14"/>
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       Margin="0 30 0 0" Padding="5"
+                       Text="{Binding Prize4}"
+                       MinWidth="{StaticResource prizeTextWidth}"
+                       Height="{StaticResource prizeTextHeight}"
+                       Background="White"
+                       FontSize="16"/>
         </Grid>
-        <Grid Width="150" Height="150"
+        <Grid Width="{StaticResource imageWidth}" Height="{StaticResource imageHeight}"
               Grid.Row="0" Grid.Column="4">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
             </Grid.Background>
             <TextBlock VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Margin="0 30 0 0"
-                               Text="{Binding Prize5}"
-                               Background="White"
-                               FontSize="14"/>
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       Margin="0 30 0 0" Padding="5"
+                       Text="{Binding Prize5}"
+                       MinWidth="{StaticResource prizeTextWidth}"
+                       Height="{StaticResource prizeTextHeight}"
+                       Background="White"
+                       FontSize="16"/>
         </Grid>
-        <Grid Width="150" Height="150"
+        <Grid Width="{StaticResource imageWidth}" Height="{StaticResource imageHeight}"
               Grid.Row="0" Grid.Column="5">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
             </Grid.Background>
             <TextBlock VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Margin="0 30 0 0"
-                               Text="{Binding Prize6}"
-                               Background="White"
-                               FontSize="14"/>
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       Margin="0 30 0 0" Padding="5"
+                       Text="{Binding Prize6}"
+                       MinWidth="{StaticResource prizeTextWidth}"
+                       Height="{StaticResource prizeTextHeight}"
+                       Background="White"
+                       FontSize="16"/>
         </Grid>
-        <Grid Width="150" Height="150"
+        <Grid Width="{StaticResource imageWidth}" Height="{StaticResource imageHeight}"
               Grid.Row="0" Grid.Column="6">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
             </Grid.Background>
             <TextBlock VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Margin="0 30 0 0"
-                               Text="{Binding Prize7}"
-                               Background="White"
-                               FontSize="14"/>
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       Margin="0 30 0 0" Padding="5"
+                       Text="{Binding Prize7}"
+                       MinWidth="{StaticResource prizeTextWidth}"
+                       Height="{StaticResource prizeTextHeight}"
+                       Background="White"
+                       FontSize="16"/>
         </Grid>
-        <Grid Width="150" Height="150"
+        <Grid Width="{StaticResource imageWidth}" Height="{StaticResource imageHeight}"
               Grid.Row="0" Grid.Column="7">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
             </Grid.Background>
             <TextBlock VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Margin="0 30 0 0"
-                               Text="{Binding Prize8}"
-                               Background="White"
-                               FontSize="14"/>
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       Margin="0 30 0 0" Padding="5"
+                       Text="{Binding Prize8}"
+                       MinWidth="{StaticResource prizeTextWidth}"
+                       Height="{StaticResource prizeTextHeight}"
+                       Background="White"
+                       FontSize="16"/>
         </Grid>
-        <Grid Width="150" Height="150"
+        <Grid Width="{StaticResource imageWidth}" Height="{StaticResource imageHeight}"
               Grid.Row="0" Grid.Column="8">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
             </Grid.Background>
             <TextBlock VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Margin="0 30 0 0"
-                               Text="{Binding Prize9}"
-                               Background="White"
-                               FontSize="14"/>
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       Margin="0 30 0 0" Padding="5"
+                       Text="{Binding Prize9}"
+                       MinWidth="{StaticResource prizeTextWidth}"
+                       Height="{StaticResource prizeTextHeight}"
+                       Background="White"
+                       FontSize="16"/>
         </Grid>
-        <Grid Width="150" Height="150"
+        <Grid Width="{StaticResource imageWidth}" Height="{StaticResource imageHeight}"
               Grid.Row="0" Grid.Column="9">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
             </Grid.Background>
             <TextBlock VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Margin="0 30 0 0"
-                               Text="{Binding Prize10}"
-                               Background="White"
-                               FontSize="14"/>
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       Margin="0 30 0 0" Padding="5"
+                       Text="{Binding Prize10}"
+                       MinWidth="{StaticResource prizeTextWidth}"
+                       Height="{StaticResource prizeTextHeight}"
+                       Background="White"
+                       FontSize="16"/>
         </Grid>
 
         <!--人名-->
-        <Grid Width="150" Height="150"
+        <Grid Width="{StaticResource imageWidth}" Height="{StaticResource imageHeight}"
               Grid.Row="2" Grid.Column="0">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
             </Grid.Background>
-            <TextBlock VerticalAlignment="Center" 
-                               HorizontalAlignment="Center"
-                               Text="{Binding Person1}"
-                               Background="Transparent"
-                               FontSize="14"/>
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center"
+                           Text="恭喜你!"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center" Margin="0 5 0 0"
+                           Text="{Binding Department1}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center"
+                           Text="{Binding Person1}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+            </StackPanel>
         </Grid>
         <Grid Width="150" Height="150"
               Grid.Row="2" Grid.Column="1">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
             </Grid.Background>
-            <TextBlock VerticalAlignment="Center" 
-                               HorizontalAlignment="Center"
-                               Text="{Binding Person2}"
-                               Background="Transparent"
-                               FontSize="14"/>
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center"
+                           Text="恭喜你!"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center" Margin="0 5 0 0"
+                           Text="{Binding Department2}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center"
+                           Text="{Binding Person2}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+            </StackPanel>
         </Grid>
         <Grid Width="150" Height="150"
               Grid.Row="2" Grid.Column="2">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
             </Grid.Background>
-            <TextBlock VerticalAlignment="Center" 
-                               HorizontalAlignment="Center"
-                               Text="{Binding Person3}"
-                               Background="Transparent"
-                               FontSize="14"/>
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center"
+                           Text="恭喜你!"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center" Margin="0 5 0 0"
+                           Text="{Binding Department3}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center"
+                           Text="{Binding Person3}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+            </StackPanel>
         </Grid>
         <Grid Width="150" Height="150"
               Grid.Row="2" Grid.Column="3">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
             </Grid.Background>
-            <TextBlock VerticalAlignment="Center" 
-                               HorizontalAlignment="Center"
-                               Text="{Binding Person4}"
-                               Background="Transparent"
-                               FontSize="14"/>
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center"
+                           Text="恭喜你!"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center" Margin="0 5 0 0"
+                           Text="{Binding Department4}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center"
+                           Text="{Binding Person4}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+            </StackPanel>
         </Grid>
         <Grid Width="150" Height="150"
               Grid.Row="2" Grid.Column="4">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
             </Grid.Background>
-            <TextBlock VerticalAlignment="Center" 
-                               HorizontalAlignment="Center"
-                               Text="{Binding Person5}"
-                               Background="Transparent"
-                               FontSize="14"/>
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center"
+                           Text="恭喜你!"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center" Margin="0 5 0 0"
+                           Text="{Binding Department5}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center"
+                           Text="{Binding Person5}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+            </StackPanel>
         </Grid>
         <Grid Width="150" Height="150"
               Grid.Row="2" Grid.Column="5">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
             </Grid.Background>
-            <TextBlock VerticalAlignment="Center" 
-                               HorizontalAlignment="Center"
-                               Text="{Binding Person6}"
-                               Background="Transparent"
-                               FontSize="14"/>
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center"
+                           Text="恭喜你!"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center" Margin="0 5 0 0"
+                           Text="{Binding Department6}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center"
+                           Text="{Binding Person6}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+            </StackPanel>
         </Grid>
         <Grid Width="150" Height="150"
               Grid.Row="2" Grid.Column="6">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
             </Grid.Background>
-            <TextBlock VerticalAlignment="Center" 
-                               HorizontalAlignment="Center"
-                               Text="{Binding Person7}"
-                               Background="Transparent"
-                               FontSize="14"/>
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center"
+                           Text="恭喜你!"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center" Margin="0 5 0 0"
+                           Text="{Binding Department7}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center"
+                           Text="{Binding Person7}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+            </StackPanel>
         </Grid>
         <Grid Width="150" Height="150"
               Grid.Row="2" Grid.Column="7">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
             </Grid.Background>
-            <TextBlock VerticalAlignment="Center" 
-                               HorizontalAlignment="Center"
-                               Text="{Binding Person8}"
-                               Background="Transparent"
-                               FontSize="14"/>
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center"
+                           Text="恭喜你!"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center" Margin="0 5 0 0"
+                           Text="{Binding Department8}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center"
+                           Text="{Binding Person8}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+            </StackPanel>
         </Grid>
         <Grid Width="150" Height="150"
               Grid.Row="2" Grid.Column="8">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
             </Grid.Background>
-            <TextBlock VerticalAlignment="Center" 
-                               HorizontalAlignment="Center"
-                               Text="{Binding Person9}"
-                               Background="Transparent"
-                               FontSize="14"/>
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center"
+                           Text="恭喜你!"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center" Margin="0 5 0 0"
+                           Text="{Binding Department9}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center"
+                           Text="{Binding Person9}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+            </StackPanel>
         </Grid>
         <Grid Width="150" Height="150"
               Grid.Row="2" Grid.Column="9">
             <Grid.Background>
                 <ImageBrush ImageSource="pack://application:,,,/Image/person.png"/>
             </Grid.Background>
-            <TextBlock VerticalAlignment="Center" 
-                               HorizontalAlignment="Center"
-                               Text="{Binding Person10}"
-                               Background="Transparent"
-                               FontSize="14"/>
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center"
+                           Text="恭喜你!"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center" Margin="0 5 0 0"
+                           Text="{Binding Department10}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+                <TextBlock TextAlignment="Center"
+                           Text="{Binding Person10}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+            </StackPanel>
         </Grid>
 
         <!--箭头-->

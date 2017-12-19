@@ -68,6 +68,7 @@ namespace LuckyDraw
                         if (_mainViewModel.PeopleCount == 0)
                         {
                             MessageBox.Show("抽奖人不足！");
+                            return;
                         }
 
                         //开始滚动
@@ -163,33 +164,43 @@ namespace LuckyDraw
 
                 //人名
                 rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Department1 = _mainViewModel.PeopleList[rad].Department;
                 _mainViewModel.Person1 = _mainViewModel.PeopleList[rad].Name;
 
                 rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Department2 = _mainViewModel.PeopleList[rad].Department;
                 _mainViewModel.Person2 = _mainViewModel.PeopleList[rad].Name;
 
                 rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Department3 = _mainViewModel.PeopleList[rad].Department;
                 _mainViewModel.Person3 = _mainViewModel.PeopleList[rad].Name;
 
                 rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Department4 = _mainViewModel.PeopleList[rad].Department;
                 _mainViewModel.Person4 = _mainViewModel.PeopleList[rad].Name;
 
                 rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Department5 = _mainViewModel.PeopleList[rad].Department;
                 _mainViewModel.Person5 = _mainViewModel.PeopleList[rad].Name;
 
                 rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Department6 = _mainViewModel.PeopleList[rad].Department;
                 _mainViewModel.Person6 = _mainViewModel.PeopleList[rad].Name;
 
                 rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Department7 = _mainViewModel.PeopleList[rad].Department;
                 _mainViewModel.Person7 = _mainViewModel.PeopleList[rad].Name;
 
                 rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Department8 = _mainViewModel.PeopleList[rad].Department;
                 _mainViewModel.Person8 = _mainViewModel.PeopleList[rad].Name;
 
                 rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Department9 = _mainViewModel.PeopleList[rad].Department;
                 _mainViewModel.Person9 = _mainViewModel.PeopleList[rad].Name;
 
                 rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
+                _mainViewModel.Department10 = _mainViewModel.PeopleList[rad].Department;
                 _mainViewModel.Person10 = _mainViewModel.PeopleList[rad].Name;
             }
             catch (Exception ex) { }
@@ -205,12 +216,14 @@ namespace LuckyDraw
             if (prize1 != null && person1 != null)
             {
                 _mainViewModel.Prize1 = prize1.Name;
+                _mainViewModel.Department1 = person1.Department;
                 _mainViewModel.Person1 = person1.Name;
                 drawList.Add(prize1, person1);
             }
             else
             {
                 _mainViewModel.Prize1 = "";
+                _mainViewModel.Department1 = "";
                 _mainViewModel.Person1 = "";
             }
 
@@ -219,12 +232,14 @@ namespace LuckyDraw
             if (prize2 != null && person2 != null)
             {
                 _mainViewModel.Prize2 = prize2.Name;
+                _mainViewModel.Department2 = person2.Department;
                 _mainViewModel.Person2 = person2.Name;
                 drawList.Add(prize2, person2);
             }
             else
             {
                 _mainViewModel.Prize2 = "";
+                _mainViewModel.Department2 = "";
                 _mainViewModel.Person2 = "";
             }
 
@@ -233,12 +248,14 @@ namespace LuckyDraw
             if (prize3 != null && person3 != null)
             {
                 _mainViewModel.Prize3 = prize3.Name;
+                _mainViewModel.Department3 = person3.Department;
                 _mainViewModel.Person3 = person3.Name;
                 drawList.Add(prize3, person3);
             }
             else
             {
                 _mainViewModel.Prize3 = "";
+                _mainViewModel.Department3 = "";
                 _mainViewModel.Person3 = "";
             }
 
@@ -247,12 +264,14 @@ namespace LuckyDraw
             if (prize4 != null && person4 != null)
             {
                 _mainViewModel.Prize4 = prize4.Name;
+                _mainViewModel.Department4 = person4.Department;
                 _mainViewModel.Person4 = person4.Name;
                 drawList.Add(prize4, person4);
             }
             else
             {
                 _mainViewModel.Prize4 = "";
+                _mainViewModel.Department4 = person4.Department;
                 _mainViewModel.Person4 = "";
             }
 
@@ -261,12 +280,14 @@ namespace LuckyDraw
             if (prize5 != null && person5 != null)
             {
                 _mainViewModel.Prize5 = prize5.Name;
+                _mainViewModel.Department5 = person5.Department;
                 _mainViewModel.Person5 = person5.Name;
                 drawList.Add(prize5, person5);
             }
             else
             {
                 _mainViewModel.Prize5 = "";
+                _mainViewModel.Department5 = "";
                 _mainViewModel.Person5 = "";
             }
 
@@ -275,12 +296,14 @@ namespace LuckyDraw
             if (prize6 != null && person6 != null)
             {
                 _mainViewModel.Prize6 = prize6.Name;
+                _mainViewModel.Department6 = person6.Department;
                 _mainViewModel.Person6 = person6.Name;
                 drawList.Add(prize6, person6);
             }
             else
             {
                 _mainViewModel.Prize6 = "";
+                _mainViewModel.Department6 = "";
                 _mainViewModel.Person6 = "";
             }
 
@@ -289,12 +312,14 @@ namespace LuckyDraw
             if (prize7 != null && person7 != null)
             {
                 _mainViewModel.Prize7 = prize7.Name;
+                _mainViewModel.Department7 = person7.Department;
                 _mainViewModel.Person7 = person7.Name;
                 drawList.Add(prize7, person7);
             }
             else
             {
                 _mainViewModel.Prize7 = "";
+                _mainViewModel.Department7 = "";
                 _mainViewModel.Person7 = "";
             }
 
@@ -303,12 +328,14 @@ namespace LuckyDraw
             if (prize8 != null && person8 != null)
             {
                 _mainViewModel.Prize8 = prize8.Name;
+                _mainViewModel.Department8 = person8.Department;
                 _mainViewModel.Person8 = person8.Name;
                 drawList.Add(prize8, person8);
             }
             else
             {
                 _mainViewModel.Prize8 = "";
+                _mainViewModel.Department8 = "";
                 _mainViewModel.Person8 = "";
             }
 
@@ -317,12 +344,14 @@ namespace LuckyDraw
             if (prize9 != null && person9 != null)
             {
                 _mainViewModel.Prize9 = prize9.Name;
+                _mainViewModel.Department9 = person9.Department;
                 _mainViewModel.Person9 = person9.Name;
                 drawList.Add(prize9, person9);
             }
             else
             {
                 _mainViewModel.Prize9 = "";
+                _mainViewModel.Department9 = "";
                 _mainViewModel.Person9 = "";
             }
 
@@ -331,12 +360,14 @@ namespace LuckyDraw
             if (prize10 != null && person10 != null)
             {
                 _mainViewModel.Prize10 = prize10.Name;
+                _mainViewModel.Department10 = person10.Department;
                 _mainViewModel.Person10 = person10.Name;
                 drawList.Add(prize10, person10);
             }
             else
             {
                 _mainViewModel.Prize10 = "";
+                _mainViewModel.Department10 = "";
                 _mainViewModel.Person10 = "";
             }
 
