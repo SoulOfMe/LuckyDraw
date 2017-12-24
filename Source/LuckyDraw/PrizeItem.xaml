@@ -9,7 +9,7 @@
     <UserControl.Background>
         <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
     </UserControl.Background>
-    <TextBlock VerticalAlignment="Bottom"
+    <TextBlock VerticalAlignment="Bottom" x:Name="prizename"
                HorizontalAlignment="Center"
                TextAlignment="Center" 
                MinWidth="100" Padding="5"

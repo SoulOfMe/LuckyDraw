@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Keyboard.PreviewKeyDown="Window_PreviewKeyDown"
-        MouseDoubleClick="Window_MouseDoubleClick"
         Title="2018年会抽奖" Height="350" Width="525">
     <Window.Background>
         <ImageBrush ImageSource="pack://application:,,,/Image/background2.jpg"/>

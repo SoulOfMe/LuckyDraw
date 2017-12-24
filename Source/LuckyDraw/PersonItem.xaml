@@ -17,11 +17,12 @@
                    FontSize="16"
                    FontWeight="Bold"
                    Foreground="White"/>
-        <TextBlock TextAlignment="Center" Margin="0 5 0 0"
+        <TextBlock TextAlignment="Center" x:Name="departname"
+                   Margin="0 5 0 0"
                    FontSize="16"
                    FontWeight="Bold"
                    Foreground="White"/>
-        <TextBlock TextAlignment="Center"
+        <TextBlock TextAlignment="Center" x:Name="personname"
                    FontSize="16"
                    FontWeight="Bold"
                    Foreground="White"/>
