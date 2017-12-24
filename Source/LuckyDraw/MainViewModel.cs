@@ -575,7 +575,7 @@ namespace LuckyDraw
                 string line;
                 if (File.Exists("result.csv"))
                 {
-                    StreamReader resultSR = new StreamReader("result.csv");
+                    StreamReader resultSR = new StreamReader("result.csv",Encoding.GetEncoding("gb2312"));
                     while ((line = resultSR.ReadLine()) != null)
                     {
                         var list = line.Split(',');
@@ -594,7 +594,7 @@ namespace LuckyDraw
 
                 if (File.Exists("prizelist.csv"))
                 {
-                    StreamReader prizeSR = new StreamReader("prizelist.csv");
+                    StreamReader prizeSR = new StreamReader("prizelist.csv", Encoding.GetEncoding("gb2312"));
                     int prizeNum = 1;
                     while ((line = prizeSR.ReadLine()) != null)
                     {
@@ -616,7 +616,7 @@ namespace LuckyDraw
 
                 if (File.Exists("peoplelist.csv"))
                 {
-                    StreamReader peopleSR = new StreamReader("peoplelist.csv");
+                    StreamReader peopleSR = new StreamReader("peoplelist.csv", Encoding.GetEncoding("gb2312"));
                     int personNum = 1;
                     while ((line = peopleSR.ReadLine()) != null)
                     {
