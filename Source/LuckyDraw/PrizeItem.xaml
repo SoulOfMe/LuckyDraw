@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="LuckyDraw.PrizeItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LuckyDraw"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="150">
+    <UserControl.Background>
+        <ImageBrush ImageSource="pack://application:,,,/Image/prize.png"/>
+    </UserControl.Background>
+    <TextBlock VerticalAlignment="Bottom"
+               HorizontalAlignment="Center"
+               TextAlignment="Center" 
+               MinWidth="100" Padding="5"
+               Background="White"
+               Margin="0 0 0 30"
+               FontSize="16"/>
+</UserControl>

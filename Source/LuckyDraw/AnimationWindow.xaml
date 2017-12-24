@@ -1,0 +1,79 @@
+﻿<Window x:Class="LuckyDraw.AnimationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LuckyDraw"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Keyboard.PreviewKeyDown="Window_PreviewKeyDown"
+        MouseDoubleClick="Window_MouseDoubleClick"
+        Title="2018年会抽奖" Height="350" Width="525">
+    <Window.Background>
+        <ImageBrush ImageSource="pack://application:,,,/Image/background2.jpg"/>
+    </Window.Background>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Canvas Width="150" Height="150"
+                x:Name="prizelist1">
+        </Canvas>
+        
+        <Canvas Width="150" Height="150"
+                Grid.Column="1"
+                x:Name="personlist1">
+        </Canvas>
+
+        <Canvas Width="150" Height="150"
+                Grid.Column="2"
+                x:Name="prizelist2">
+        </Canvas>
+
+        <Canvas Width="150" Height="150"
+                Grid.Column="3"
+                x:Name="personlist2">
+        </Canvas>
+
+        <Canvas Width="150" Height="150"
+                Grid.Column="4"
+                x:Name="prizelist3">
+        </Canvas>
+
+        <Canvas Width="150" Height="150"
+                Grid.Column="5"
+                x:Name="personlist3">
+        </Canvas>
+
+        <Canvas Width="150" Height="150"
+                Grid.Column="6"
+                x:Name="prizelist4">
+        </Canvas>
+
+        <Canvas Width="150" Height="150"
+                Grid.Column="7"
+                x:Name="personlist4">
+        </Canvas>
+
+        <Canvas Width="150" Height="150"
+                Grid.Column="8"
+                x:Name="prizelist5">
+        </Canvas>
+
+        <Canvas Width="150" Height="150"
+                Grid.Column="9"
+                x:Name="personlist5">
+        </Canvas>
+    </Grid>
+</Window>

@@ -36,7 +36,6 @@ namespace LuckyDraw
                 EntireView();
             }
             catch (Exception ex) { }
-
         }
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)

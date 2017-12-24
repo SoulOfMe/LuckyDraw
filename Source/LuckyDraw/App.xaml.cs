@@ -17,8 +17,11 @@ namespace LuckyDraw
         {
             base.OnStartup(e);
 
-            MainWindow window = new LuckyDraw.MainWindow();
-            window.Show();
+            //MainWindow window = new LuckyDraw.MainWindow();
+            //window.Show();
+
+            AnimationWindow winodw = new AnimationWindow();
+            winodw.Show();
         }
     }
 }
