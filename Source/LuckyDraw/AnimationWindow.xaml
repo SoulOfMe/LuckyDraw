@@ -25,11 +25,11 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
+
         <Canvas Width="150" Height="150"
                 x:Name="prizelist1">
         </Canvas>
-        
+
         <Canvas Width="150" Height="150"
                 Grid.Column="1"
                 x:Name="personlist1">
@@ -74,5 +74,14 @@
                 Grid.Column="9"
                 x:Name="personlist5">
         </Canvas>
+
+        <TextBlock Grid.Column="9" Margin="10"
+                   x:Name="restprizecount"
+               VerticalAlignment="Bottom" 
+               HorizontalAlignment="Center"
+               TextAlignment="Center" 
+               MinWidth="100" Padding="5"
+               Background="White"
+               FontSize="16"/>
     </Grid>
 </Window>

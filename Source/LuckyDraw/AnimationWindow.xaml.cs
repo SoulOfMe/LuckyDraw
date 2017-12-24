@@ -81,6 +81,8 @@ namespace LuckyDraw
                         _timer.Stop();
 
                         GetDrawResult();
+
+                        restprizecount.Text = "剩余奖品数：" + _mainViewModel.PrizeCount.ToString();
                     }
                 }
             }
@@ -844,6 +846,8 @@ namespace LuckyDraw
                 personlist4.Children.Add(person4);
                 personlist5.Children.Add(person5);
             }
+
+            restprizecount.Text = "剩余奖品数：" + _mainViewModel.PrizeCount.ToString();
         }
 
         //得到抽奖结果
