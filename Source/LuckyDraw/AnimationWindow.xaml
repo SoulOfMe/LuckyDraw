@@ -28,51 +28,121 @@
 
         <Canvas Width="150" Height="150"
                 x:Name="prizelist1">
+            <Canvas.OpacityMask>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                    <GradientStop Offset="0" Color="Transparent"/>
+                    <GradientStop Offset="0.5" Color="Red"/>
+                    <GradientStop Offset="1" Color="Firebrick"/>
+                </LinearGradientBrush>
+            </Canvas.OpacityMask>
         </Canvas>
 
         <Canvas Width="150" Height="150"
                 Grid.Column="1"
                 x:Name="personlist1">
+            <Canvas.OpacityMask>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                    <GradientStop Offset="0" Color="Transparent"/>
+                    <GradientStop Offset="0.5" Color="Red"/>
+                    <GradientStop Offset="1" Color="Firebrick"/>
+                </LinearGradientBrush>
+            </Canvas.OpacityMask>
         </Canvas>
 
         <Canvas Width="150" Height="150"
                 Grid.Column="2"
                 x:Name="prizelist2">
+            <Canvas.OpacityMask>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                    <GradientStop Offset="0" Color="Transparent"/>
+                    <GradientStop Offset="0.5" Color="Red"/>
+                    <GradientStop Offset="1" Color="Firebrick"/>
+                </LinearGradientBrush>
+            </Canvas.OpacityMask>
         </Canvas>
 
         <Canvas Width="150" Height="150"
                 Grid.Column="3"
                 x:Name="personlist2">
+            <Canvas.OpacityMask>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                    <GradientStop Offset="0" Color="Transparent"/>
+                    <GradientStop Offset="0.5" Color="Red"/>
+                    <GradientStop Offset="1" Color="Firebrick"/>
+                </LinearGradientBrush>
+            </Canvas.OpacityMask>
         </Canvas>
 
         <Canvas Width="150" Height="150"
                 Grid.Column="4"
                 x:Name="prizelist3">
+            <Canvas.OpacityMask>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                    <GradientStop Offset="0" Color="Transparent"/>
+                    <GradientStop Offset="0.5" Color="Red"/>
+                    <GradientStop Offset="1" Color="Firebrick"/>
+                </LinearGradientBrush>
+            </Canvas.OpacityMask>
         </Canvas>
 
         <Canvas Width="150" Height="150"
                 Grid.Column="5"
                 x:Name="personlist3">
+            <Canvas.OpacityMask>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                    <GradientStop Offset="0" Color="Transparent"/>
+                    <GradientStop Offset="0.5" Color="Red"/>
+                    <GradientStop Offset="1" Color="Firebrick"/>
+                </LinearGradientBrush>
+            </Canvas.OpacityMask>
         </Canvas>
 
         <Canvas Width="150" Height="150"
                 Grid.Column="6"
                 x:Name="prizelist4">
+            <Canvas.OpacityMask>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                    <GradientStop Offset="0" Color="Transparent"/>
+                    <GradientStop Offset="0.5" Color="Red"/>
+                    <GradientStop Offset="1" Color="Firebrick"/>
+                </LinearGradientBrush>
+            </Canvas.OpacityMask>
         </Canvas>
 
         <Canvas Width="150" Height="150"
                 Grid.Column="7"
                 x:Name="personlist4">
+            <Canvas.OpacityMask>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                    <GradientStop Offset="0" Color="Transparent"/>
+                    <GradientStop Offset="0.5" Color="Red"/>
+                    <GradientStop Offset="1" Color="Firebrick"/>
+                </LinearGradientBrush>
+            </Canvas.OpacityMask>
         </Canvas>
 
         <Canvas Width="150" Height="150"
                 Grid.Column="8"
                 x:Name="prizelist5">
+            <Canvas.OpacityMask>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                    <GradientStop Offset="0" Color="Transparent"/>
+                    <GradientStop Offset="0.5" Color="Red"/>
+                    <GradientStop Offset="1" Color="Firebrick"/>
+                </LinearGradientBrush>
+            </Canvas.OpacityMask>
         </Canvas>
 
         <Canvas Width="150" Height="150"
                 Grid.Column="9"
                 x:Name="personlist5">
+            <Canvas.OpacityMask>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                    <GradientStop Offset="0" Color="Transparent"/>
+                    <GradientStop Offset="0.5" Color="Red"/>
+                    <GradientStop Offset="1" Color="Firebrick"/>
+                </LinearGradientBrush>
+            </Canvas.OpacityMask>
         </Canvas>
 
         <TextBlock Grid.Column="9" Margin="10"

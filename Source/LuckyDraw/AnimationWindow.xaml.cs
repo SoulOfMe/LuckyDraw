@@ -74,6 +74,8 @@ namespace LuckyDraw
                             return;
                         }
 
+                        SetCliptoBound(false);
+                        SwitchList();
                         _timer.Start();
                     }
                     else
@@ -131,9 +133,15 @@ namespace LuckyDraw
             _doubleAnimation.FillBehavior = FillBehavior.HoldEnd; //设置动画完成后执行的操作
 
             _getresultAnimaiton.Duration = TimeSpan.FromSeconds(3);
-            _getresultAnimaiton.AccelerationRatio = 0;
-            _getresultAnimaiton.DecelerationRatio = 1;
+            _getresultAnimaiton.AccelerationRatio = 0.2;
+            _getresultAnimaiton.DecelerationRatio = 0.8;
             _getresultAnimaiton.FillBehavior = FillBehavior.HoldEnd;
+            _getresultAnimaiton.Completed += _getresultAnimaiton_Completed;
+        }
+
+        private void _getresultAnimaiton_Completed(object sender, EventArgs e)
+        {
+            SetCliptoBound(true);
         }
 
         private void _timer_Tick(object sender, EventArgs e)
@@ -232,7 +240,7 @@ namespace LuckyDraw
 
             //添加图片的位置
             double endDouble = 0;
-         
+
             foreach (var i in prizelist1.Children)
             {
                 var item = i as PrizeItem;
@@ -1555,6 +1563,24 @@ namespace LuckyDraw
                     i.Key.IsUsed = false;
                     i.Value.IsUsed = false;
                 }
+            }
+        }
+
+        private void SetCliptoBound(bool clip)
+        {
+            if (prizelist1.ClipToBounds != clip)
+            {
+                prizelist1.ClipToBounds = clip;
+                prizelist2.ClipToBounds = clip;
+                prizelist3.ClipToBounds = clip;
+                prizelist4.ClipToBounds = clip;
+                prizelist5.ClipToBounds = clip;
+
+                personlist1.ClipToBounds = clip;
+                personlist2.ClipToBounds = clip;
+                personlist3.ClipToBounds = clip;
+                personlist4.ClipToBounds = clip;
+                personlist5.ClipToBounds = clip;
             }
         }
     }
