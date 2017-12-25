@@ -28,7 +28,7 @@ namespace LuckyDraw
 
             AnimationLoad();
             LoadData();
-            _timer.Interval = new TimeSpan(0, 0, 0, 0, 500);
+            _timer.Interval = new TimeSpan(0, 0, 0, 0, 1000);
             _timer.Tick += _timer_Tick;
         }
 
@@ -125,9 +125,9 @@ namespace LuckyDraw
 
         private void AnimationLoad()
         {
-            _doubleAnimation.Duration = TimeSpan.FromSeconds(0.5); //设置动画时间线长度
-            _doubleAnimation.AccelerationRatio = 0.1; //动画加速
-            _doubleAnimation.DecelerationRatio = 0.1; //动画减速
+            _doubleAnimation.Duration = TimeSpan.FromSeconds(1); //设置动画时间线长度
+            _doubleAnimation.AccelerationRatio = 0; //动画加速
+            _doubleAnimation.DecelerationRatio = 0; //动画减速
             _doubleAnimation.FillBehavior = FillBehavior.HoldEnd; //设置动画完成后执行的操作
 
             _getresultAnimaiton.Duration = TimeSpan.FromSeconds(3);
@@ -232,7 +232,7 @@ namespace LuckyDraw
 
             //添加图片的位置
             double endDouble = 0;
-
+         
             foreach (var i in prizelist1.Children)
             {
                 var item = i as PrizeItem;
@@ -249,16 +249,6 @@ namespace LuckyDraw
                     if (transBottom < endDouble)
                     {
                         endDouble = transBottom;
-                    }
-
-                    //透明度
-                    if (transBottom != 0)
-                    {
-                        item.Opacity = 1 / (Math.Abs(transBottom) / 150 + 1);
-                    }
-                    else
-                    {
-                        item.Opacity = 1;
                     }
                 }
             }
@@ -300,16 +290,6 @@ namespace LuckyDraw
                     {
                         endDouble = transBottom;
                     }
-
-                    //透明度
-                    if (transBottom != 0)
-                    {
-                        item.Opacity = 1 / (Math.Abs(transBottom) / 150 + 1);
-                    }
-                    else
-                    {
-                        item.Opacity = 1;
-                    }
                 }
             }
             foreach (var i in deletes)
@@ -348,16 +328,6 @@ namespace LuckyDraw
                     if (transBottom < endDouble)
                     {
                         endDouble = transBottom;
-                    }
-
-                    //透明度
-                    if (transBottom != 0)
-                    {
-                        item.Opacity = 1 / (Math.Abs(transBottom) / 150 + 1);
-                    }
-                    else
-                    {
-                        item.Opacity = 1;
                     }
                 }
             }
@@ -398,16 +368,6 @@ namespace LuckyDraw
                     {
                         endDouble = transBottom;
                     }
-
-                    //透明度
-                    if (transBottom != 0)
-                    {
-                        item.Opacity = 1 / (Math.Abs(transBottom) / 150 + 1);
-                    }
-                    else
-                    {
-                        item.Opacity = 1;
-                    }
                 }
             }
             foreach (var i in deletes)
@@ -446,16 +406,6 @@ namespace LuckyDraw
                     if (transBottom < endDouble)
                     {
                         endDouble = transBottom;
-                    }
-
-                    //透明度
-                    if (transBottom != 0)
-                    {
-                        item.Opacity = 1 / (Math.Abs(transBottom) / 150 + 1);
-                    }
-                    else
-                    {
-                        item.Opacity = 1;
                     }
                 }
             }
@@ -497,16 +447,6 @@ namespace LuckyDraw
                     {
                         endDouble = transBottom;
                     }
-
-                    //透明度
-                    if (transBottom != 0)
-                    {
-                        item.Opacity = 1 / (Math.Abs(transBottom) / 150 + 1);
-                    }
-                    else
-                    {
-                        item.Opacity = 1;
-                    }
                 }
             }
             foreach (var i in deletes)
@@ -546,16 +486,6 @@ namespace LuckyDraw
                     if (transBottom > endDouble)
                     {
                         endDouble = transBottom;
-                    }
-
-                    //透明度
-                    if (transBottom != 0)
-                    {
-                        item.Opacity = 1 / (Math.Abs(transBottom) / 150 + 1);
-                    }
-                    else
-                    {
-                        item.Opacity = 1;
                     }
                 }
             }
@@ -597,16 +527,6 @@ namespace LuckyDraw
                     {
                         endDouble = transBottom;
                     }
-
-                    //透明度
-                    if (transBottom != 0)
-                    {
-                        item.Opacity = 1 / (Math.Abs(transBottom) / 150 + 1);
-                    }
-                    else
-                    {
-                        item.Opacity = 1;
-                    }
                 }
             }
             foreach (var i in deletes)
@@ -647,16 +567,6 @@ namespace LuckyDraw
                     {
                         endDouble = transBottom;
                     }
-
-                    //透明度
-                    if (transBottom != 0)
-                    {
-                        item.Opacity = 1 / (Math.Abs(transBottom) / 150 + 1);
-                    }
-                    else
-                    {
-                        item.Opacity = 1;
-                    }
                 }
             }
             foreach (var i in deletes)
@@ -696,16 +606,6 @@ namespace LuckyDraw
                     if (transBottom > endDouble)
                     {
                         endDouble = transBottom;
-                    }
-
-                    //透明度
-                    if (transBottom != 0)
-                    {
-                        item.Opacity = 1 / (Math.Abs(transBottom) / 150 + 1);
-                    }
-                    else
-                    {
-                        item.Opacity = 1;
                     }
                 }
             }
@@ -771,11 +671,11 @@ namespace LuckyDraw
                 rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prize5.prizename.Text = _mainViewModel.PrizesList[rad].Name;
 
-                prize1.Opacity = 0.5;
-                prize2.Opacity = 0.5;
-                prize3.Opacity = 0.5;
-                prize4.Opacity = 0.5;
-                prize5.Opacity = 0.5;
+                //prize1.Opacity = 0.5;
+                //prize2.Opacity = 0.5;
+                //prize3.Opacity = 0.5;
+                //prize4.Opacity = 0.5;
+                //prize5.Opacity = 0.5;
                 Canvas.SetBottom(prize1, i * 150);
                 Canvas.SetBottom(prize2, i * 150);
                 Canvas.SetBottom(prize3, i * 150);
@@ -829,11 +729,11 @@ namespace LuckyDraw
                 person5.departname.Text = _mainViewModel.PeopleList[rad].Department;
                 person5.personname.Text = _mainViewModel.PeopleList[rad].Name;
 
-                person1.Opacity = 0.5;
-                person2.Opacity = 0.5;
-                person3.Opacity = 0.5;
-                person4.Opacity = 0.5;
-                person5.Opacity = 0.5;
+                //person1.Opacity = 0.5;
+                //person2.Opacity = 0.5;
+                //person3.Opacity = 0.5;
+                //person4.Opacity = 0.5;
+                //person5.Opacity = 0.5;
                 Canvas.SetBottom(person1, i * 150);
                 Canvas.SetBottom(person2, i * 150);
                 Canvas.SetBottom(person3, i * 150);
@@ -882,7 +782,7 @@ namespace LuckyDraw
                         {
                             endDouble = transBottom;
                         }
-                        item.Opacity = 0.5;
+                        //item.Opacity = 0.5;
                     }
                 }
 
@@ -897,13 +797,13 @@ namespace LuckyDraw
                     if (i == 1)
                     {
                         prizeItem.prizename.Text = prize1.Name;
-                        prizeItem.Opacity = 1;
+                        //prizeItem.Opacity = 1;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                         prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
-                        prizeItem.Opacity = 0.5;
+                        //prizeItem.Opacity = 0.5;
                     }
                     Canvas.SetBottom(prizeItem, -i * 150 + endDouble);
                     prizelist1.Children.Add(prizeItem);
@@ -946,7 +846,7 @@ namespace LuckyDraw
                         {
                             endDouble = transBottom;
                         }
-                        item.Opacity = 0.5;
+                        //item.Opacity = 0.5;
                     }
                 }
                 //加5个Item,继续转
@@ -961,14 +861,14 @@ namespace LuckyDraw
                     {
                         personItem.departname.Text = person1.Department;
                         personItem.personname.Text = person1.Name;
-                        personItem.Opacity = 1;
+                        //personItem.Opacity = 1;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
                         personItem.departname.Text = _mainViewModel.PeopleList[rad].Department;
                         personItem.personname.Text = _mainViewModel.PeopleList[rad].Name;
-                        personItem.Opacity = 0.5;
+                        //personItem.Opacity = 0.5;
                     }
                     Canvas.SetBottom(personItem, i * 150 + endDouble);
                     personlist1.Children.Add(personItem);
@@ -1039,7 +939,7 @@ namespace LuckyDraw
                         {
                             endDouble = transBottom;
                         }
-                        item.Opacity = 0.5;
+                        //item.Opacity = 0.5;
                     }
                 }
 
@@ -1054,13 +954,13 @@ namespace LuckyDraw
                     if (i == 1)
                     {
                         prizeItem.prizename.Text = prize2.Name;
-                        prizeItem.Opacity = 1;
+                        //prizeItem.Opacity = 1;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                         prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
-                        prizeItem.Opacity = 0.5;
+                        //prizeItem.Opacity = 0.5;
                     }
                     Canvas.SetBottom(prizeItem, -i * 150 + endDouble);
                     prizelist2.Children.Add(prizeItem);
@@ -1103,7 +1003,7 @@ namespace LuckyDraw
                         {
                             endDouble = transBottom;
                         }
-                        item.Opacity = 0.5;
+                        //item.Opacity = 0.5;
                     }
                 }
                 //加5个Item,继续转
@@ -1118,14 +1018,14 @@ namespace LuckyDraw
                     {
                         personItem.departname.Text = person2.Department;
                         personItem.personname.Text = person2.Name;
-                        personItem.Opacity = 1;
+                        //personItem.Opacity = 1;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
                         personItem.departname.Text = _mainViewModel.PeopleList[rad].Department;
                         personItem.personname.Text = _mainViewModel.PeopleList[rad].Name;
-                        personItem.Opacity = 0.5;
+                        //personItem.Opacity = 0.5;
                     }
                     Canvas.SetBottom(personItem, i * 150 + endDouble);
                     personlist2.Children.Add(personItem);
@@ -1196,7 +1096,7 @@ namespace LuckyDraw
                         {
                             endDouble = transBottom;
                         }
-                        item.Opacity = 0.5;
+                        //item.Opacity = 0.5;
                     }
                 }
 
@@ -1211,13 +1111,13 @@ namespace LuckyDraw
                     if (i == 1)
                     {
                         prizeItem.prizename.Text = prize3.Name;
-                        prizeItem.Opacity = 1;
+                        //prizeItem.Opacity = 1;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                         prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
-                        prizeItem.Opacity = 0.5;
+                        //prizeItem.Opacity = 0.5;
                     }
                     Canvas.SetBottom(prizeItem, -i * 150 + endDouble);
                     prizelist3.Children.Add(prizeItem);
@@ -1260,7 +1160,7 @@ namespace LuckyDraw
                         {
                             endDouble = transBottom;
                         }
-                        item.Opacity = 0.5;
+                        //item.Opacity = 0.5;
                     }
                 }
                 //加5个Item,继续转
@@ -1275,14 +1175,14 @@ namespace LuckyDraw
                     {
                         personItem.departname.Text = person3.Department;
                         personItem.personname.Text = person3.Name;
-                        personItem.Opacity = 1;
+                        //personItem.Opacity = 1;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
                         personItem.departname.Text = _mainViewModel.PeopleList[rad].Department;
                         personItem.personname.Text = _mainViewModel.PeopleList[rad].Name;
-                        personItem.Opacity = 0.5;
+                        //personItem.Opacity = 0.5;
                     }
                     Canvas.SetBottom(personItem, i * 150 + endDouble);
                     personlist3.Children.Add(personItem);
@@ -1353,7 +1253,7 @@ namespace LuckyDraw
                         {
                             endDouble = transBottom;
                         }
-                        item.Opacity = 0.5;
+                        //item.Opacity = 0.5;
                     }
                 }
 
@@ -1368,13 +1268,13 @@ namespace LuckyDraw
                     if (i == 1)
                     {
                         prizeItem.prizename.Text = prize4.Name;
-                        prizeItem.Opacity = 1;
+                        //prizeItem.Opacity = 1;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                         prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
-                        prizeItem.Opacity = 0.5;
+                        //prizeItem.Opacity = 0.5;
                     }
                     Canvas.SetBottom(prizeItem, -i * 150 + endDouble);
                     prizelist4.Children.Add(prizeItem);
@@ -1417,7 +1317,7 @@ namespace LuckyDraw
                         {
                             endDouble = transBottom;
                         }
-                        item.Opacity = 0.5;
+                        //item.Opacity = 0.5;
                     }
                 }
                 //加5个Item,继续转
@@ -1432,14 +1332,14 @@ namespace LuckyDraw
                     {
                         personItem.departname.Text = person4.Department;
                         personItem.personname.Text = person4.Name;
-                        personItem.Opacity = 1;
+                        //personItem.Opacity = 1;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
                         personItem.departname.Text = _mainViewModel.PeopleList[rad].Department;
                         personItem.personname.Text = _mainViewModel.PeopleList[rad].Name;
-                        personItem.Opacity = 0.5;
+                        //personItem.Opacity = 0.5;
                     }
                     Canvas.SetBottom(personItem, i * 150 + endDouble);
                     personlist4.Children.Add(personItem);
@@ -1510,7 +1410,7 @@ namespace LuckyDraw
                         {
                             endDouble = transBottom;
                         }
-                        item.Opacity = 0.5;
+                        //item.Opacity = 0.5;
                     }
                 }
 
@@ -1525,13 +1425,13 @@ namespace LuckyDraw
                     if (i == 1)
                     {
                         prizeItem.prizename.Text = prize5.Name;
-                        prizeItem.Opacity = 1;
+                        //prizeItem.Opacity = 1;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                         prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
-                        prizeItem.Opacity = 0.5;
+                        //prizeItem.Opacity = 0.5;
                     }
                     Canvas.SetBottom(prizeItem, -i * 150 + endDouble);
                     prizelist5.Children.Add(prizeItem);
@@ -1574,7 +1474,7 @@ namespace LuckyDraw
                         {
                             endDouble = transBottom;
                         }
-                        item.Opacity = 0.5;
+                        //item.Opacity = 0.5;
                     }
                 }
                 //加5个Item,继续转
@@ -1589,14 +1489,14 @@ namespace LuckyDraw
                     {
                         personItem.departname.Text = person5.Department;
                         personItem.personname.Text = person5.Name;
-                        personItem.Opacity = 1;
+                        //personItem.Opacity = 1;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
                         personItem.departname.Text = _mainViewModel.PeopleList[rad].Department;
                         personItem.personname.Text = _mainViewModel.PeopleList[rad].Name;
-                        personItem.Opacity = 0.5;
+                        //personItem.Opacity = 0.5;
                     }
                     Canvas.SetBottom(personItem, i * 150 + endDouble);
                     personlist5.Children.Add(personItem);
