@@ -27,9 +27,12 @@ namespace LuckyDraw
             InitializeComponent();
 
             AnimationLoad();
-            LoadData();
-            _timer.Interval = new TimeSpan(0, 0, 0, 0, 1000);
+            //LoadData();
+            _timer.Interval = new TimeSpan(0, 0, 0, 0, 300);
             _timer.Tick += _timer_Tick;
+
+            restprizecount.Text = "剩余奖品数：" + _mainViewModel.PrizeCount.ToString();
+            rectangleForResult.Visibility = Visibility.Hidden;
         }
 
         private DoubleAnimation _doubleAnimation = new DoubleAnimation();
@@ -62,19 +65,27 @@ namespace LuckyDraw
                     if (_isshow)
                     {
                         //判断奖品数和抽奖人数目
-                        if (_mainViewModel.PrizeCount == 0)
+                        if (_mainViewModel.PrizeCount < 15)
                         {
-                            MessageBox.Show("奖品已抽完！");
+                            MessageBox.Show("奖品不足！");
+                            _isshow = false;
                             return;
                         }
 
-                        if (_mainViewModel.PeopleCount == 0)
+                        if (_mainViewModel.PeopleCount < 15)
                         {
                             MessageBox.Show("抽奖人不足！");
+                            _isshow = false;
                             return;
                         }
 
-                        SetCliptoBound(false);
+                        if (prizelist1.Children.Count == 0)
+                        {
+                            LoadData();
+                            rectangleForResult.Visibility = Visibility.Visible;
+                        }
+
+                        //SetCliptoBound(false);
                         SwitchList();
                         _timer.Start();
                     }
@@ -83,6 +94,7 @@ namespace LuckyDraw
                         _timer.Stop();
 
                         GetDrawResult();
+                        //SetCliptoBound(true);
 
                         restprizecount.Text = "剩余奖品数：" + _mainViewModel.PrizeCount.ToString();
                     }
@@ -127,21 +139,21 @@ namespace LuckyDraw
 
         private void AnimationLoad()
         {
-            _doubleAnimation.Duration = TimeSpan.FromSeconds(1); //设置动画时间线长度
+            _doubleAnimation.Duration = TimeSpan.FromSeconds(0.3); //设置动画时间线长度
             _doubleAnimation.AccelerationRatio = 0; //动画加速
             _doubleAnimation.DecelerationRatio = 0; //动画减速
             _doubleAnimation.FillBehavior = FillBehavior.HoldEnd; //设置动画完成后执行的操作
 
             _getresultAnimaiton.Duration = TimeSpan.FromSeconds(3);
-            _getresultAnimaiton.AccelerationRatio = 0.2;
-            _getresultAnimaiton.DecelerationRatio = 0.8;
+            _getresultAnimaiton.AccelerationRatio = 0;
+            _getresultAnimaiton.DecelerationRatio = 0.9;
             _getresultAnimaiton.FillBehavior = FillBehavior.HoldEnd;
             _getresultAnimaiton.Completed += _getresultAnimaiton_Completed;
         }
 
         private void _getresultAnimaiton_Completed(object sender, EventArgs e)
         {
-            SetCliptoBound(true);
+            //SetCliptoBound(true);
         }
 
         private void _timer_Tick(object sender, EventArgs e)
@@ -232,7 +244,7 @@ namespace LuckyDraw
         private void SwitchList()
         {
             //移动距离
-            int move = 150;
+            int move = 225;
             int endposition = 600;
 
             //需要删除的对象列表
@@ -275,7 +287,7 @@ namespace LuckyDraw
                 };
                 int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
-                Canvas.SetBottom(prizeItem, -i * 150 + endDouble);
+                Canvas.SetBottom(prizeItem, -i * move + endDouble);
                 prizelist1.Children.Add(prizeItem);
             }
             endDouble = 0;
@@ -314,7 +326,7 @@ namespace LuckyDraw
                 };
                 int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
-                Canvas.SetBottom(prizeItem, -i * 150 + endDouble);
+                Canvas.SetBottom(prizeItem, -i * move + endDouble);
                 prizelist2.Children.Add(prizeItem);
             }
             endDouble = 0;
@@ -353,7 +365,7 @@ namespace LuckyDraw
                 };
                 int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
-                Canvas.SetBottom(prizeItem, -i * 150 + endDouble);
+                Canvas.SetBottom(prizeItem, -i * move + endDouble);
                 prizelist3.Children.Add(prizeItem);
             }
             endDouble = 0;
@@ -392,7 +404,7 @@ namespace LuckyDraw
                 };
                 int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
-                Canvas.SetBottom(prizeItem, -i * 150 + endDouble);
+                Canvas.SetBottom(prizeItem, -i * move + endDouble);
                 prizelist4.Children.Add(prizeItem);
             }
             endDouble = 0;
@@ -431,7 +443,7 @@ namespace LuckyDraw
                 };
                 int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
-                Canvas.SetBottom(prizeItem, -i * 150 + endDouble);
+                Canvas.SetBottom(prizeItem, -i * move + endDouble);
                 prizelist5.Children.Add(prizeItem);
             }
             endDouble = 0;
@@ -472,7 +484,7 @@ namespace LuckyDraw
                 int rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
                 personItem.departname.Text = _mainViewModel.PeopleList[rad].Department;
                 personItem.personname.Text = _mainViewModel.PeopleList[rad].Name;
-                Canvas.SetBottom(personItem, i * 150 + endDouble);
+                Canvas.SetBottom(personItem, i * move + endDouble);
                 personlist1.Children.Add(personItem);
             }
             endDouble = 0;
@@ -512,7 +524,7 @@ namespace LuckyDraw
                 int rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
                 personItem.departname.Text = _mainViewModel.PeopleList[rad].Department;
                 personItem.personname.Text = _mainViewModel.PeopleList[rad].Name;
-                Canvas.SetBottom(personItem, i * 150 + endDouble);
+                Canvas.SetBottom(personItem, i * move + endDouble);
                 personlist2.Children.Add(personItem);
             }
             endDouble = 0;
@@ -552,7 +564,7 @@ namespace LuckyDraw
                 int rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
                 personItem.departname.Text = _mainViewModel.PeopleList[rad].Department;
                 personItem.personname.Text = _mainViewModel.PeopleList[rad].Name;
-                Canvas.SetBottom(personItem, i * 150 + endDouble);
+                Canvas.SetBottom(personItem, i * move + endDouble);
                 personlist3.Children.Add(personItem);
             }
             endDouble = 0;
@@ -592,7 +604,7 @@ namespace LuckyDraw
                 int rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
                 personItem.departname.Text = _mainViewModel.PeopleList[rad].Department;
                 personItem.personname.Text = _mainViewModel.PeopleList[rad].Name;
-                Canvas.SetBottom(personItem, i * 150 + endDouble);
+                Canvas.SetBottom(personItem, i * move + endDouble);
                 personlist4.Children.Add(personItem);
             }
             endDouble = 0;
@@ -632,7 +644,7 @@ namespace LuckyDraw
                 int rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
                 personItem.departname.Text = _mainViewModel.PeopleList[rad].Department;
                 personItem.personname.Text = _mainViewModel.PeopleList[rad].Name;
-                Canvas.SetBottom(personItem, i * 150 + endDouble);
+                Canvas.SetBottom(personItem, i * move + endDouble);
                 personlist5.Children.Add(personItem);
             }
             endDouble = 0;
@@ -641,7 +653,9 @@ namespace LuckyDraw
 
         private void LoadData()
         {
-            for (int i = -5; i < 6; i++)
+            int move = 225;
+
+            for (int i = -3; i < 4; i++)
             {
                 PrizeItem prize1 = new PrizeItem()
                 {
@@ -684,11 +698,11 @@ namespace LuckyDraw
                 //prize3.Opacity = 0.5;
                 //prize4.Opacity = 0.5;
                 //prize5.Opacity = 0.5;
-                Canvas.SetBottom(prize1, i * 150);
-                Canvas.SetBottom(prize2, i * 150);
-                Canvas.SetBottom(prize3, i * 150);
-                Canvas.SetBottom(prize4, i * 150);
-                Canvas.SetBottom(prize5, i * 150);
+                Canvas.SetBottom(prize1, i * move);
+                Canvas.SetBottom(prize2, i * move);
+                Canvas.SetBottom(prize3, i * move);
+                Canvas.SetBottom(prize4, i * move);
+                Canvas.SetBottom(prize5, i * move);
 
                 prizelist1.Children.Add(prize1);
                 prizelist2.Children.Add(prize2);
@@ -742,11 +756,11 @@ namespace LuckyDraw
                 //person3.Opacity = 0.5;
                 //person4.Opacity = 0.5;
                 //person5.Opacity = 0.5;
-                Canvas.SetBottom(person1, i * 150);
-                Canvas.SetBottom(person2, i * 150);
-                Canvas.SetBottom(person3, i * 150);
-                Canvas.SetBottom(person4, i * 150);
-                Canvas.SetBottom(person5, i * 150);
+                Canvas.SetBottom(person1, i * move);
+                Canvas.SetBottom(person2, i * move);
+                Canvas.SetBottom(person3, i * move);
+                Canvas.SetBottom(person4, i * move);
+                Canvas.SetBottom(person5, i * move);
 
                 personlist1.Children.Add(person1);
                 personlist2.Children.Add(person2);
@@ -763,8 +777,10 @@ namespace LuckyDraw
         {
             Dictionary<Prize, Person> drawList = new Dictionary<Prize, Person>();
 
+            int move = 225;
+
             //图片最后的位置
-            double endDouble = -450;
+            double endDouble = -move * 3;
 
             int endposition = 500;
 
@@ -772,8 +788,16 @@ namespace LuckyDraw
             List<UIElement> deletes = new List<UIElement>();
 
             var prize1 = _mainViewModel.RandomPrize;
+            var prize11 = _mainViewModel.RandomPrize;
+            var prize12 = _mainViewModel.RandomPrize;
+
             var person1 = _mainViewModel.RandomPerson;
-            if (prize1 != null && person1 != null)
+            var person11 = _mainViewModel.RandomPerson;
+            var person12 = _mainViewModel.RandomPerson;
+
+            if (prize1 != null && person1 != null
+                && prize11 != null && person11 != null
+                && prize12 != null && person12 != null)
             {
                 //找到最后一个Item
                 foreach (var i in prizelist1.Children)
@@ -782,15 +806,14 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        if (transBottom <= -450)
+                        if (transBottom <= -move * 3)
                         {
                             deletes.Add(item);
                         }
-                        if (transBottom <= -300 && transBottom > -450)
+                        if (transBottom <= -move * 2 && transBottom > -move * 3)
                         {
                             endDouble = transBottom;
                         }
-                        //item.Opacity = 0.5;
                     }
                 }
 
@@ -805,15 +828,21 @@ namespace LuckyDraw
                     if (i == 1)
                     {
                         prizeItem.prizename.Text = prize1.Name;
-                        //prizeItem.Opacity = 1;
+                    }
+                    else if (i == 2)
+                    {
+                        prizeItem.prizename.Text = prize11.Name;
+                    }
+                    else if (i == 3)
+                    {
+                        prizeItem.prizename.Text = prize12.Name;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                         prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
-                        //prizeItem.Opacity = 0.5;
                     }
-                    Canvas.SetBottom(prizeItem, -i * 150 + endDouble);
+                    Canvas.SetBottom(prizeItem, -i * move + endDouble);
                     prizelist1.Children.Add(prizeItem);
                 }
                 //转过去
@@ -823,7 +852,7 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        _getresultAnimaiton.To = -endDouble + 150 + transBottom;
+                        _getresultAnimaiton.To = -endDouble + 2 * move + transBottom;
                         item.BeginAnimation(Canvas.BottomProperty, _getresultAnimaiton); //设置动画应用的属性并启动动画 
                         transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
                         if (transBottom > endposition)
@@ -838,7 +867,7 @@ namespace LuckyDraw
                 }
                 deletes.Clear();
 
-                endDouble = 450;
+                endDouble = move * 3;
                 //Person  找到最后一个Item
                 foreach (var i in personlist1.Children)
                 {
@@ -846,15 +875,14 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        if (transBottom >= 450)
+                        if (transBottom >= move * 3)
                         {
                             deletes.Add(item);
                         }
-                        if (transBottom >= 300 && transBottom < 450)
+                        if (transBottom >= move * 2 && transBottom < move * 3)
                         {
                             endDouble = transBottom;
                         }
-                        //item.Opacity = 0.5;
                     }
                 }
                 //加5个Item,继续转
@@ -867,18 +895,26 @@ namespace LuckyDraw
                     };
                     if (i == 1)
                     {
+                        personItem.departname.Text = person12.Department;
+                        personItem.personname.Text = person12.Name;
+                    }
+                    else if (i == 2)
+                    {
+                        personItem.departname.Text = person11.Department;
+                        personItem.personname.Text = person11.Name;
+                    }
+                    else if (i == 3)
+                    {
                         personItem.departname.Text = person1.Department;
                         personItem.personname.Text = person1.Name;
-                        //personItem.Opacity = 1;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
                         personItem.departname.Text = _mainViewModel.PeopleList[rad].Department;
                         personItem.personname.Text = _mainViewModel.PeopleList[rad].Name;
-                        //personItem.Opacity = 0.5;
                     }
-                    Canvas.SetBottom(personItem, i * 150 + endDouble);
+                    Canvas.SetBottom(personItem, i * move + endDouble);
                     personlist1.Children.Add(personItem);
                 }
                 //转过去
@@ -888,7 +924,7 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        _getresultAnimaiton.To = -endDouble - 150 + transBottom;
+                        _getresultAnimaiton.To = -endDouble - 2 * move + transBottom;
                         item.BeginAnimation(Canvas.BottomProperty, _getresultAnimaiton); //设置动画应用的属性并启动动画 
                         transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
                         if (transBottom < -endposition)
@@ -905,6 +941,8 @@ namespace LuckyDraw
                 endDouble = 0;
 
                 drawList.Add(prize1, person1);
+                drawList.Add(prize11, person11);
+                drawList.Add(prize12, person12);
             }
             else
             {
@@ -928,10 +966,18 @@ namespace LuckyDraw
             }
 
             var prize2 = _mainViewModel.RandomPrize;
+            var prize21 = _mainViewModel.RandomPrize;
+            var prize22 = _mainViewModel.RandomPrize;
+
             var person2 = _mainViewModel.RandomPerson;
-            if (prize2 != null && person2 != null)
+            var person21 = _mainViewModel.RandomPerson;
+            var person22 = _mainViewModel.RandomPerson;
+
+            if (prize2 != null && person2 != null
+                && prize21 != null && person21 != null
+                && prize22 != null && person22 != null)
             {
-                endDouble = -450;
+                endDouble = -move * 3;
                 //找到最后一个Item
                 foreach (var i in prizelist2.Children)
                 {
@@ -939,15 +985,14 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        if (transBottom <= -450)
+                        if (transBottom <= -move * 3)
                         {
                             deletes.Add(item);
                         }
-                        if (transBottom <= -300 && transBottom > -450)
+                        if (transBottom <= -move * 2 && transBottom > -move * 3)
                         {
                             endDouble = transBottom;
                         }
-                        //item.Opacity = 0.5;
                     }
                 }
 
@@ -962,7 +1007,14 @@ namespace LuckyDraw
                     if (i == 1)
                     {
                         prizeItem.prizename.Text = prize2.Name;
-                        //prizeItem.Opacity = 1;
+                    }
+                    else if (i == 2)
+                    {
+                        prizeItem.prizename.Text = prize21.Name;
+                    }
+                    else if (i == 3)
+                    {
+                        prizeItem.prizename.Text = prize22.Name;
                     }
                     else
                     {
@@ -970,7 +1022,7 @@ namespace LuckyDraw
                         prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
                         //prizeItem.Opacity = 0.5;
                     }
-                    Canvas.SetBottom(prizeItem, -i * 150 + endDouble);
+                    Canvas.SetBottom(prizeItem, -i * move + endDouble);
                     prizelist2.Children.Add(prizeItem);
                 }
                 //转过去
@@ -980,7 +1032,7 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        _getresultAnimaiton.To = -endDouble + 150 + transBottom;
+                        _getresultAnimaiton.To = -endDouble + 2 * move + transBottom;
                         item.BeginAnimation(Canvas.BottomProperty, _getresultAnimaiton); //设置动画应用的属性并启动动画 
                         transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
                         if (transBottom > endposition)
@@ -995,7 +1047,7 @@ namespace LuckyDraw
                 }
                 deletes.Clear();
 
-                endDouble = 450;
+                endDouble = move * 3;
                 //Person  找到最后一个Item
                 foreach (var i in personlist2.Children)
                 {
@@ -1003,15 +1055,14 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        if (transBottom >= 450)
+                        if (transBottom >= move * 3)
                         {
                             deletes.Add(item);
                         }
-                        if (transBottom >= 300 && transBottom < 450)
+                        if (transBottom >= move * 2 && transBottom < move * 3)
                         {
                             endDouble = transBottom;
                         }
-                        //item.Opacity = 0.5;
                     }
                 }
                 //加5个Item,继续转
@@ -1024,18 +1075,26 @@ namespace LuckyDraw
                     };
                     if (i == 1)
                     {
+                        personItem.departname.Text = person22.Department;
+                        personItem.personname.Text = person22.Name;
+                    }
+                    else if (i == 2)
+                    {
+                        personItem.departname.Text = person21.Department;
+                        personItem.personname.Text = person21.Name;
+                    }
+                    else if (i == 3)
+                    {
                         personItem.departname.Text = person2.Department;
                         personItem.personname.Text = person2.Name;
-                        //personItem.Opacity = 1;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
                         personItem.departname.Text = _mainViewModel.PeopleList[rad].Department;
                         personItem.personname.Text = _mainViewModel.PeopleList[rad].Name;
-                        //personItem.Opacity = 0.5;
                     }
-                    Canvas.SetBottom(personItem, i * 150 + endDouble);
+                    Canvas.SetBottom(personItem, i * move + endDouble);
                     personlist2.Children.Add(personItem);
                 }
                 //转过去
@@ -1045,7 +1104,7 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        _getresultAnimaiton.To = -endDouble - 150 + transBottom;
+                        _getresultAnimaiton.To = -endDouble - 2 * move + transBottom;
                         item.BeginAnimation(Canvas.BottomProperty, _getresultAnimaiton); //设置动画应用的属性并启动动画 
                         transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
                         if (transBottom < -endposition)
@@ -1062,6 +1121,8 @@ namespace LuckyDraw
                 endDouble = 0;
 
                 drawList.Add(prize2, person2);
+                drawList.Add(prize21, person21);
+                drawList.Add(prize22, person22);
             }
             else
             {
@@ -1085,10 +1146,18 @@ namespace LuckyDraw
             }
 
             var prize3 = _mainViewModel.RandomPrize;
+            var prize31 = _mainViewModel.RandomPrize;
+            var prize32 = _mainViewModel.RandomPrize;
+
             var person3 = _mainViewModel.RandomPerson;
-            if (prize3 != null && person3 != null)
+            var person31 = _mainViewModel.RandomPerson;
+            var person32 = _mainViewModel.RandomPerson;
+
+            if (prize3 != null && person3 != null
+                && prize31 != null && person31 != null
+                && prize32 != null && person32 != null)
             {
-                endDouble = -450;
+                endDouble = -move * 3;
                 //找到最后一个Item
                 foreach (var i in prizelist3.Children)
                 {
@@ -1096,11 +1165,11 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        if (transBottom <= -450)
+                        if (transBottom <= -move * 3)
                         {
                             deletes.Add(item);
                         }
-                        if (transBottom <= -300 && transBottom > -450)
+                        if (transBottom <= -move * 2 && transBottom > -move * 3)
                         {
                             endDouble = transBottom;
                         }
@@ -1119,15 +1188,21 @@ namespace LuckyDraw
                     if (i == 1)
                     {
                         prizeItem.prizename.Text = prize3.Name;
-                        //prizeItem.Opacity = 1;
+                    }
+                    else if (i == 2)
+                    {
+                        prizeItem.prizename.Text = prize31.Name;
+                    }
+                    else if (i == 3)
+                    {
+                        prizeItem.prizename.Text = prize32.Name;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                         prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
-                        //prizeItem.Opacity = 0.5;
                     }
-                    Canvas.SetBottom(prizeItem, -i * 150 + endDouble);
+                    Canvas.SetBottom(prizeItem, -i * move + endDouble);
                     prizelist3.Children.Add(prizeItem);
                 }
                 //转过去
@@ -1137,7 +1212,7 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        _getresultAnimaiton.To = -endDouble + 150 + transBottom;
+                        _getresultAnimaiton.To = -endDouble + 2 * move + transBottom;
                         item.BeginAnimation(Canvas.BottomProperty, _getresultAnimaiton); //设置动画应用的属性并启动动画 
                         transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
                         if (transBottom > endposition)
@@ -1152,7 +1227,7 @@ namespace LuckyDraw
                 }
                 deletes.Clear();
 
-                endDouble = 450;
+                endDouble = move * 3;
                 //Person  找到最后一个Item
                 foreach (var i in personlist3.Children)
                 {
@@ -1160,15 +1235,14 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        if (transBottom >= 450)
+                        if (transBottom >= move * 3)
                         {
                             deletes.Add(item);
                         }
-                        if (transBottom >= 300 && transBottom < 450)
+                        if (transBottom >= move * 2 && transBottom < move * 3)
                         {
                             endDouble = transBottom;
                         }
-                        //item.Opacity = 0.5;
                     }
                 }
                 //加5个Item,继续转
@@ -1181,18 +1255,26 @@ namespace LuckyDraw
                     };
                     if (i == 1)
                     {
+                        personItem.departname.Text = person32.Department;
+                        personItem.personname.Text = person32.Name;
+                    }
+                    else if (i == 2)
+                    {
+                        personItem.departname.Text = person31.Department;
+                        personItem.personname.Text = person31.Name;
+                    }
+                    else if (i == 3)
+                    {
                         personItem.departname.Text = person3.Department;
                         personItem.personname.Text = person3.Name;
-                        //personItem.Opacity = 1;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
                         personItem.departname.Text = _mainViewModel.PeopleList[rad].Department;
                         personItem.personname.Text = _mainViewModel.PeopleList[rad].Name;
-                        //personItem.Opacity = 0.5;
                     }
-                    Canvas.SetBottom(personItem, i * 150 + endDouble);
+                    Canvas.SetBottom(personItem, i * move + endDouble);
                     personlist3.Children.Add(personItem);
                 }
                 //转过去
@@ -1202,7 +1284,7 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        _getresultAnimaiton.To = -endDouble - 150 + transBottom;
+                        _getresultAnimaiton.To = -endDouble - 2 * move + transBottom;
                         item.BeginAnimation(Canvas.BottomProperty, _getresultAnimaiton); //设置动画应用的属性并启动动画 
                         transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
                         if (transBottom < -endposition)
@@ -1219,6 +1301,8 @@ namespace LuckyDraw
                 endDouble = 0;
 
                 drawList.Add(prize3, person3);
+                drawList.Add(prize31, person31);
+                drawList.Add(prize32, person32);
             }
             else
             {
@@ -1242,10 +1326,18 @@ namespace LuckyDraw
             }
 
             var prize4 = _mainViewModel.RandomPrize;
+            var prize41 = _mainViewModel.RandomPrize;
+            var prize42 = _mainViewModel.RandomPrize;
+
             var person4 = _mainViewModel.RandomPerson;
-            if (prize4 != null && person4 != null)
+            var person41 = _mainViewModel.RandomPerson;
+            var person42 = _mainViewModel.RandomPerson;
+
+            if (prize4 != null && person4 != null
+                && prize41 != null && person41 != null
+                && prize42 != null && person42 != null)
             {
-                endDouble = -450;
+                endDouble = -move * 3;
                 //找到最后一个Item
                 foreach (var i in prizelist4.Children)
                 {
@@ -1253,15 +1345,14 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        if (transBottom <= -450)
+                        if (transBottom <= -move * 3)
                         {
                             deletes.Add(item);
                         }
-                        if (transBottom <= -300 && transBottom > -450)
+                        if (transBottom <= -move * 2 && transBottom > -move * 3)
                         {
                             endDouble = transBottom;
                         }
-                        //item.Opacity = 0.5;
                     }
                 }
 
@@ -1276,15 +1367,21 @@ namespace LuckyDraw
                     if (i == 1)
                     {
                         prizeItem.prizename.Text = prize4.Name;
-                        //prizeItem.Opacity = 1;
+                    }
+                    else if (i == 2)
+                    {
+                        prizeItem.prizename.Text = prize41.Name;
+                    }
+                    else if (i == 3)
+                    {
+                        prizeItem.prizename.Text = prize42.Name;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                         prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
-                        //prizeItem.Opacity = 0.5;
                     }
-                    Canvas.SetBottom(prizeItem, -i * 150 + endDouble);
+                    Canvas.SetBottom(prizeItem, -i * move + endDouble);
                     prizelist4.Children.Add(prizeItem);
                 }
                 //转过去
@@ -1294,7 +1391,7 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        _getresultAnimaiton.To = -endDouble + 150 + transBottom;
+                        _getresultAnimaiton.To = -endDouble + 2 * move + transBottom;
                         item.BeginAnimation(Canvas.BottomProperty, _getresultAnimaiton); //设置动画应用的属性并启动动画 
                         transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
                         if (transBottom > endposition)
@@ -1309,7 +1406,7 @@ namespace LuckyDraw
                 }
                 deletes.Clear();
 
-                endDouble = 450;
+                endDouble = move * 3;
                 //Person  找到最后一个Item
                 foreach (var i in personlist4.Children)
                 {
@@ -1317,15 +1414,14 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        if (transBottom >= 450)
+                        if (transBottom >= move * 3)
                         {
                             deletes.Add(item);
                         }
-                        if (transBottom >= 300 && transBottom < 450)
+                        if (transBottom >= move * 2 && transBottom < move * 3)
                         {
                             endDouble = transBottom;
                         }
-                        //item.Opacity = 0.5;
                     }
                 }
                 //加5个Item,继续转
@@ -1338,18 +1434,26 @@ namespace LuckyDraw
                     };
                     if (i == 1)
                     {
+                        personItem.departname.Text = person42.Department;
+                        personItem.personname.Text = person42.Name;
+                    }
+                    else if (i == 2)
+                    {
+                        personItem.departname.Text = person41.Department;
+                        personItem.personname.Text = person41.Name;
+                    }
+                    else if (i == 3)
+                    {
                         personItem.departname.Text = person4.Department;
                         personItem.personname.Text = person4.Name;
-                        //personItem.Opacity = 1;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
                         personItem.departname.Text = _mainViewModel.PeopleList[rad].Department;
                         personItem.personname.Text = _mainViewModel.PeopleList[rad].Name;
-                        //personItem.Opacity = 0.5;
                     }
-                    Canvas.SetBottom(personItem, i * 150 + endDouble);
+                    Canvas.SetBottom(personItem, i * move + endDouble);
                     personlist4.Children.Add(personItem);
                 }
                 //转过去
@@ -1359,7 +1463,7 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        _getresultAnimaiton.To = -endDouble - 150 + transBottom;
+                        _getresultAnimaiton.To = -endDouble - 2 * move + transBottom;
                         item.BeginAnimation(Canvas.BottomProperty, _getresultAnimaiton); //设置动画应用的属性并启动动画 
                         transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
                         if (transBottom < -endposition)
@@ -1376,6 +1480,8 @@ namespace LuckyDraw
                 endDouble = 0;
 
                 drawList.Add(prize4, person4);
+                drawList.Add(prize41, person41);
+                drawList.Add(prize42, person42);
             }
             else
             {
@@ -1399,10 +1505,18 @@ namespace LuckyDraw
             }
 
             var prize5 = _mainViewModel.RandomPrize;
+            var prize51 = _mainViewModel.RandomPrize;
+            var prize52 = _mainViewModel.RandomPrize;
+
             var person5 = _mainViewModel.RandomPerson;
-            if (prize5 != null && person5 != null)
+            var person51 = _mainViewModel.RandomPerson;
+            var person52 = _mainViewModel.RandomPerson;
+
+            if (prize5 != null && person5 != null
+                && prize51 != null && person51 != null
+                && prize52 != null && person52 != null)
             {
-                endDouble = -450;
+                endDouble = -move * 3;
                 //找到最后一个Item
                 foreach (var i in prizelist5.Children)
                 {
@@ -1410,15 +1524,14 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        if (transBottom <= -450)
+                        if (transBottom <= -move * 3)
                         {
                             deletes.Add(item);
                         }
-                        if (transBottom <= -300 && transBottom > -450)
+                        if (transBottom <= -move * 2 && transBottom > -move * 3)
                         {
                             endDouble = transBottom;
                         }
-                        //item.Opacity = 0.5;
                     }
                 }
 
@@ -1433,15 +1546,21 @@ namespace LuckyDraw
                     if (i == 1)
                     {
                         prizeItem.prizename.Text = prize5.Name;
-                        //prizeItem.Opacity = 1;
+                    }
+                    else if (i == 2)
+                    {
+                        prizeItem.prizename.Text = prize51.Name;
+                    }
+                    else if (i == 3)
+                    {
+                        prizeItem.prizename.Text = prize52.Name;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                         prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
-                        //prizeItem.Opacity = 0.5;
                     }
-                    Canvas.SetBottom(prizeItem, -i * 150 + endDouble);
+                    Canvas.SetBottom(prizeItem, -i * move + endDouble);
                     prizelist5.Children.Add(prizeItem);
                 }
                 //转过去
@@ -1451,7 +1570,7 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        _getresultAnimaiton.To = -endDouble + 150 + transBottom;
+                        _getresultAnimaiton.To = -endDouble + 2 * move + transBottom;
                         item.BeginAnimation(Canvas.BottomProperty, _getresultAnimaiton); //设置动画应用的属性并启动动画 
                         transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
                         if (transBottom > endposition)
@@ -1466,7 +1585,7 @@ namespace LuckyDraw
                 }
                 deletes.Clear();
 
-                endDouble = 450;
+                endDouble = move * 3;
                 //Person  找到最后一个Item
                 foreach (var i in personlist5.Children)
                 {
@@ -1474,15 +1593,14 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        if (transBottom >= 450)
+                        if (transBottom >= move * 3)
                         {
                             deletes.Add(item);
                         }
-                        if (transBottom >= 300 && transBottom < 450)
+                        if (transBottom >= move * 2 && transBottom < move * 3)
                         {
                             endDouble = transBottom;
                         }
-                        //item.Opacity = 0.5;
                     }
                 }
                 //加5个Item,继续转
@@ -1495,18 +1613,26 @@ namespace LuckyDraw
                     };
                     if (i == 1)
                     {
+                        personItem.departname.Text = person52.Department;
+                        personItem.personname.Text = person52.Name;
+                    }
+                    else if (i == 2)
+                    {
+                        personItem.departname.Text = person51.Department;
+                        personItem.personname.Text = person51.Name;
+                    }
+                    else if (i == 3)
+                    {
                         personItem.departname.Text = person5.Department;
                         personItem.personname.Text = person5.Name;
-                        //personItem.Opacity = 1;
                     }
                     else
                     {
                         int rad = _random.Next(_mainViewModel.PeopleList.Count - 1);
                         personItem.departname.Text = _mainViewModel.PeopleList[rad].Department;
                         personItem.personname.Text = _mainViewModel.PeopleList[rad].Name;
-                        //personItem.Opacity = 0.5;
                     }
-                    Canvas.SetBottom(personItem, i * 150 + endDouble);
+                    Canvas.SetBottom(personItem, i * move + endDouble);
                     personlist5.Children.Add(personItem);
                 }
                 //转过去
@@ -1516,7 +1642,7 @@ namespace LuckyDraw
                     if (item != null)
                     {
                         double transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                        _getresultAnimaiton.To = -endDouble - 150 + transBottom;
+                        _getresultAnimaiton.To = -endDouble - 2 * move + transBottom;
                         item.BeginAnimation(Canvas.BottomProperty, _getresultAnimaiton); //设置动画应用的属性并启动动画 
                         transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
                         if (transBottom < -endposition)
@@ -1533,6 +1659,8 @@ namespace LuckyDraw
                 endDouble = 0;
 
                 drawList.Add(prize5, person5);
+                drawList.Add(prize51, person51);
+                drawList.Add(prize52, person52);
             }
             else
             {

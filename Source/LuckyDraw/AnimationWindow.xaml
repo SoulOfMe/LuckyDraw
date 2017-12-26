@@ -7,151 +7,107 @@
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Keyboard.PreviewKeyDown="Window_PreviewKeyDown"
-        Title="2018年会抽奖" Height="350" Width="525">
+        Title="2018年会抽奖" Height="600" Width="800">
     <Window.Background>
         <ImageBrush ImageSource="pack://application:,,,/Image/background2.jpg"/>
     </Window.Background>
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <Grid x:Name="rectangleForResult">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <Canvas Width="150" Height="150"
+            <Image Source="pack://application:,,,/Image/中奖背景.png"
+                   VerticalAlignment="Bottom"
+                   Margin="0 0 0 -50"/>
+            <Image Source="pack://application:,,,/Image/中奖背景.png"
+                   Grid.Row="1" />
+            <Image Source="pack://application:,,,/Image/中奖背景.png"
+                   Grid.Row="2"
+                   VerticalAlignment="Top"
+                   Margin="0 -50 0 0"/>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Canvas Width="150" Height="150"
                 x:Name="prizelist1">
-            <Canvas.OpacityMask>
-                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
-                    <GradientStop Offset="0" Color="Transparent"/>
-                    <GradientStop Offset="0.5" Color="Red"/>
-                    <GradientStop Offset="1" Color="Firebrick"/>
-                </LinearGradientBrush>
-            </Canvas.OpacityMask>
-        </Canvas>
+            </Canvas>
 
-        <Canvas Width="150" Height="150"
-                Grid.Column="1"
+            <Canvas Width="150" Height="150"
+                Grid.Column="1" Margin="-30 0 0 0"
                 x:Name="personlist1">
-            <Canvas.OpacityMask>
-                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                    <GradientStop Offset="0" Color="Transparent"/>
-                    <GradientStop Offset="0.5" Color="Red"/>
-                    <GradientStop Offset="1" Color="Firebrick"/>
-                </LinearGradientBrush>
-            </Canvas.OpacityMask>
-        </Canvas>
+            </Canvas>
 
-        <Canvas Width="150" Height="150"
+            <Canvas Width="150" Height="150"
                 Grid.Column="2"
                 x:Name="prizelist2">
-            <Canvas.OpacityMask>
-                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
-                    <GradientStop Offset="0" Color="Transparent"/>
-                    <GradientStop Offset="0.5" Color="Red"/>
-                    <GradientStop Offset="1" Color="Firebrick"/>
-                </LinearGradientBrush>
-            </Canvas.OpacityMask>
-        </Canvas>
+            </Canvas>
 
-        <Canvas Width="150" Height="150"
-                Grid.Column="3"
+            <Canvas Width="150" Height="150"
+                Grid.Column="3" Margin="-30 0 0 0"
                 x:Name="personlist2">
-            <Canvas.OpacityMask>
-                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                    <GradientStop Offset="0" Color="Transparent"/>
-                    <GradientStop Offset="0.5" Color="Red"/>
-                    <GradientStop Offset="1" Color="Firebrick"/>
-                </LinearGradientBrush>
-            </Canvas.OpacityMask>
-        </Canvas>
+            </Canvas>
 
-        <Canvas Width="150" Height="150"
+            <Canvas Width="150" Height="150"
                 Grid.Column="4"
                 x:Name="prizelist3">
-            <Canvas.OpacityMask>
-                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
-                    <GradientStop Offset="0" Color="Transparent"/>
-                    <GradientStop Offset="0.5" Color="Red"/>
-                    <GradientStop Offset="1" Color="Firebrick"/>
-                </LinearGradientBrush>
-            </Canvas.OpacityMask>
-        </Canvas>
+            </Canvas>
 
-        <Canvas Width="150" Height="150"
-                Grid.Column="5"
+            <Canvas Width="150" Height="150"
+                Grid.Column="5" Margin="-30 0 0 0"
                 x:Name="personlist3">
-            <Canvas.OpacityMask>
-                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                    <GradientStop Offset="0" Color="Transparent"/>
-                    <GradientStop Offset="0.5" Color="Red"/>
-                    <GradientStop Offset="1" Color="Firebrick"/>
-                </LinearGradientBrush>
-            </Canvas.OpacityMask>
-        </Canvas>
+            </Canvas>
 
-        <Canvas Width="150" Height="150"
+            <Canvas Width="150" Height="150"
                 Grid.Column="6"
                 x:Name="prizelist4">
-            <Canvas.OpacityMask>
-                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
-                    <GradientStop Offset="0" Color="Transparent"/>
-                    <GradientStop Offset="0.5" Color="Red"/>
-                    <GradientStop Offset="1" Color="Firebrick"/>
-                </LinearGradientBrush>
-            </Canvas.OpacityMask>
-        </Canvas>
+            </Canvas>
 
-        <Canvas Width="150" Height="150"
-                Grid.Column="7"
+            <Canvas Width="150" Height="150"
+                Grid.Column="7" Margin="-30 0 0 0"
                 x:Name="personlist4">
-            <Canvas.OpacityMask>
-                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                    <GradientStop Offset="0" Color="Transparent"/>
-                    <GradientStop Offset="0.5" Color="Red"/>
-                    <GradientStop Offset="1" Color="Firebrick"/>
-                </LinearGradientBrush>
-            </Canvas.OpacityMask>
-        </Canvas>
+            </Canvas>
 
-        <Canvas Width="150" Height="150"
+            <Canvas Width="150" Height="150"
                 Grid.Column="8"
                 x:Name="prizelist5">
-            <Canvas.OpacityMask>
-                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
-                    <GradientStop Offset="0" Color="Transparent"/>
-                    <GradientStop Offset="0.5" Color="Red"/>
-                    <GradientStop Offset="1" Color="Firebrick"/>
-                </LinearGradientBrush>
-            </Canvas.OpacityMask>
-        </Canvas>
+            </Canvas>
 
-        <Canvas Width="150" Height="150"
-                Grid.Column="9"
+            <Canvas Width="150" Height="150"
+                Grid.Column="9" Margin="-30 0 0 0"
                 x:Name="personlist5">
-            <Canvas.OpacityMask>
-                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                    <GradientStop Offset="0" Color="Transparent"/>
-                    <GradientStop Offset="0.5" Color="Red"/>
-                    <GradientStop Offset="1" Color="Firebrick"/>
-                </LinearGradientBrush>
-            </Canvas.OpacityMask>
-        </Canvas>
+            </Canvas>
+        </Grid>
 
-        <TextBlock Grid.Column="9" Margin="10"
+        <Image Source="pack://application:,,,/Image/foreground22.png"/>
+
+        <Image Source="pack://application:,,,/Image/剩余奖品数量背景框.png"
+               Width="380" Height="90" Margin="20"
+               VerticalAlignment="Top"/>
+
+        <TextBlock Margin="0 30 0 0"  
                    x:Name="restprizecount"
-               VerticalAlignment="Bottom" 
+               VerticalAlignment="Top" 
                HorizontalAlignment="Center"
                TextAlignment="Center" 
                MinWidth="100" Padding="5"
-               Background="White"
-               FontSize="16"/>
+               FontSize="40"
+               Foreground="White"/>
     </Grid>
 </Window>

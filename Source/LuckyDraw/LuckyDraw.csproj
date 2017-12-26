@@ -129,5 +129,10 @@
   <ItemGroup>
     <Resource Include="Image\background2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\foreground22.png" />
+    <Resource Include="Image\中奖背景.png" />
+    <Resource Include="Image\剩余奖品数量背景框.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

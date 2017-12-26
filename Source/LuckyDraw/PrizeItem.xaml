@@ -12,8 +12,10 @@
     <TextBlock VerticalAlignment="Bottom" x:Name="prizename"
                HorizontalAlignment="Center"
                TextAlignment="Center" 
-               MinWidth="100" Padding="5"
-               Background="White"
+               MinWidth="100" Padding="2"
+               Background="#135db3"
+               Foreground="White"
                Margin="0 0 0 30"
-               FontSize="16"/>
+               FontSize="18"
+               FontWeight="Bold"/>
 </UserControl>
