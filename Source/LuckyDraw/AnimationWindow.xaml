@@ -13,23 +13,16 @@
     </Window.Background>
 
     <Grid>
-        <Grid x:Name="rectangleForResult">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <Image Source="pack://application:,,,/Image/中奖背景.png" x:Name="resultimage1"
+                   VerticalAlignment="Center"
+                   Margin="0 0 0 450"/>
 
-            <Image Source="pack://application:,,,/Image/中奖背景.png"
-                   VerticalAlignment="Bottom"
-                   Margin="0 0 0 -50"/>
-            <Image Source="pack://application:,,,/Image/中奖背景.png"
-                   Grid.Row="1" />
-            <Image Source="pack://application:,,,/Image/中奖背景.png"
-                   Grid.Row="2"
-                   VerticalAlignment="Top"
-                   Margin="0 -50 0 0"/>
-        </Grid>
+        <Image Source="pack://application:,,,/Image/中奖背景.png"  x:Name="resultimage2"
+                   VerticalAlignment="Center"/>
+
+        <Image Source="pack://application:,,,/Image/中奖背景.png"  x:Name="resultimage3"
+                   VerticalAlignment="Center"
+               Margin="0 450 0 0"/>
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -95,7 +88,9 @@
             </Canvas>
         </Grid>
 
-        <Image Source="pack://application:,,,/Image/foreground22.png"/>
+        <Image Source="pack://application:,,,/Image/foreground22.png"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch"/>
 
         <Image Source="pack://application:,,,/Image/剩余奖品数量背景框.png"
                Width="380" Height="90" Margin="20"

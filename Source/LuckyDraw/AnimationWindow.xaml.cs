@@ -32,7 +32,10 @@ namespace LuckyDraw
             _timer.Tick += _timer_Tick;
 
             restprizecount.Text = "剩余奖品数：" + _mainViewModel.PrizeCount.ToString();
-            rectangleForResult.Visibility = Visibility.Hidden;
+
+            resultimage1.Visibility = Visibility.Hidden;
+            resultimage2.Visibility = Visibility.Hidden;
+            resultimage3.Visibility = Visibility.Hidden;
         }
 
         private DoubleAnimation _doubleAnimation = new DoubleAnimation();
@@ -82,7 +85,10 @@ namespace LuckyDraw
                         if (prizelist1.Children.Count == 0)
                         {
                             LoadData();
-                            rectangleForResult.Visibility = Visibility.Visible;
+
+                            resultimage1.Visibility = Visibility.Visible;
+                            resultimage2.Visibility = Visibility.Visible;
+                            resultimage3.Visibility = Visibility.Visible;
                         }
 
                         //SetCliptoBound(false);
@@ -132,6 +138,10 @@ namespace LuckyDraw
                 this.Top = 100;
                 this.Width = 800;
                 this.Height = 600;
+                //this.Left = 0;
+                //this.Top = 0;
+                //this.Width = SystemParameters.PrimaryScreenWidth;
+                //this.Height = SystemParameters.PrimaryScreenHeight;
 
                 _isEntrieView = false;
             }
