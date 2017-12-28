@@ -12,17 +12,17 @@
     <StackPanel Orientation="Vertical"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center">
-        <TextBlock TextAlignment="Center"
+        <!--<TextBlock TextAlignment="Center"
                    Text="恭喜你!"
                    FontSize="16"
-                   Foreground="White"/>
+                   Foreground="White"/>-->
         <TextBlock TextAlignment="Center" x:Name="departname"
                    Margin="0 5 0 0"
                    FontSize="20"
                    FontWeight="Bold"
                    Foreground="White"/>
         <TextBlock TextAlignment="Center" x:Name="personname"
-                   FontSize="20"
+                   FontSize="25"
                    FontWeight="Bold"
                    Foreground="White"/>
     </StackPanel>

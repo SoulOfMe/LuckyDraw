@@ -134,5 +134,34 @@
     <Resource Include="Image\中奖背景.png" />
     <Resource Include="Image\剩余奖品数量背景框.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PrizeImage\Beats耳机.png" />
+    <Resource Include="PrizeImage\世界杯足球.png" />
+    <Resource Include="PrizeImage\任天堂Switch.png" />
+    <Resource Include="PrizeImage\剃须刀.png" />
+    <Resource Include="PrizeImage\加湿器.png" />
+    <Resource Include="PrizeImage\华为智能手环.png" />
+    <Resource Include="PrizeImage\取暖器.png" />
+    <Resource Include="PrizeImage\台灯.png" />
+    <Resource Include="PrizeImage\吹风机.png" />
+    <Resource Include="PrizeImage\平衡车.png" />
+    <Resource Include="PrizeImage\扫地机器人.png" />
+    <Resource Include="PrizeImage\按摩眼睛罩.png" />
+    <Resource Include="PrizeImage\智能平衡车.png" />
+    <Resource Include="PrizeImage\治疗仪器.png" />
+    <Resource Include="PrizeImage\洁面仪.png" />
+    <Resource Include="PrizeImage\瑜珈垫.png" />
+    <Resource Include="PrizeImage\电子秤.png" />
+    <Resource Include="PrizeImage\磁悬浮音响.png" />
+    <Resource Include="PrizeImage\空气净化器.png" />
+    <Resource Include="PrizeImage\篮球.png" />
+    <Resource Include="PrizeImage\索尼psv.png" />
+    <Resource Include="PrizeImage\羽毛球拍.png" />
+    <Resource Include="PrizeImage\脚底按摩器.png" />
+    <Resource Include="PrizeImage\茶杯套装.png" />
+    <Resource Include="PrizeImage\蓝牙音响灯.png" />
+    <Resource Include="PrizeImage\跳舞毯.png" />
+    <Resource Include="PrizeImage\零食大礼包.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

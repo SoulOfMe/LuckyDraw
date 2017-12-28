@@ -28,7 +28,7 @@ namespace LuckyDraw
 
             AnimationLoad();
             //LoadData();
-            _timer.Interval = new TimeSpan(0, 0, 0, 0, 300);
+            _timer.Interval = new TimeSpan(0, 0, 0, 0, 250);
             _timer.Tick += _timer_Tick;
 
             restprizecount.Text = "剩余奖品数：" + _mainViewModel.PrizeCount.ToString();
@@ -44,6 +44,7 @@ namespace LuckyDraw
         DispatcherTimer _timer = new DispatcherTimer(); //屏幕滚动定时器
         private MainViewModel _mainViewModel = new MainViewModel();
         Random _random = new Random(); //随机数生成器
+        private bool _isRun = false; //是否在滚动
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -64,52 +65,53 @@ namespace LuckyDraw
                 }
                 else if (e.Key == Key.Space)
                 {
-                    _isshow = !_isshow;
-                    if (_isshow)
+                    if (_isRun)
                     {
-                        //判断奖品数和抽奖人数目
-                        if (_mainViewModel.PrizeCount < 15)
-                        {
-                            MessageBox.Show("奖品不足！");
-                            _isshow = false;
-                            return;
-                        }
-
-                        if (_mainViewModel.PeopleCount < 15)
-                        {
-                            MessageBox.Show("抽奖人不足！");
-                            _isshow = false;
-                            return;
-                        }
-
-                        if (prizelist1.Children.Count == 0)
-                        {
-                            LoadData();
-
-                            resultimage1.Visibility = Visibility.Visible;
-                            resultimage2.Visibility = Visibility.Visible;
-                            resultimage3.Visibility = Visibility.Visible;
-                        }
-
-                        //SetCliptoBound(false);
-                        SwitchList();
-                        _timer.Start();
+                        return;
                     }
-                    else
+
+                    //判断奖品数和抽奖人数目
+                    if (_mainViewModel.PrizeCount < 15)
+                    {
+                        MessageBox.Show("奖品不足！");
+                        _isRun = false;
+                        return;
+                    }
+
+                    if (_mainViewModel.PeopleCount < 15)
+                    {
+                        MessageBox.Show("抽奖人不足！");
+                        _isRun = false;
+                        return;
+                    }
+
+                    if (prizelist1.Children.Count == 0)
+                    {
+                        LoadData();
+
+                        resultimage1.Visibility = Visibility.Visible;
+                        resultimage2.Visibility = Visibility.Visible;
+                        resultimage3.Visibility = Visibility.Visible;
+                    }
+                    SwitchList();
+                    _timer.Start();
+                    _isRun = true;
+                }
+                else if (e.Key == Key.Enter)
+                {
+                    if (_isRun)
                     {
                         _timer.Stop();
 
                         GetDrawResult();
-                        //SetCliptoBound(true);
-
                         restprizecount.Text = "剩余奖品数：" + _mainViewModel.PrizeCount.ToString();
+
+                        _isRun = false;
                     }
                 }
             }
             catch (Exception ex) { }
         }
-
-        private bool _isshow = false;
 
         private void EntireView()
         {
@@ -138,10 +140,6 @@ namespace LuckyDraw
                 this.Top = 100;
                 this.Width = 800;
                 this.Height = 600;
-                //this.Left = 0;
-                //this.Top = 0;
-                //this.Width = SystemParameters.PrimaryScreenWidth;
-                //this.Height = SystemParameters.PrimaryScreenHeight;
 
                 _isEntrieView = false;
             }
@@ -149,7 +147,7 @@ namespace LuckyDraw
 
         private void AnimationLoad()
         {
-            _doubleAnimation.Duration = TimeSpan.FromSeconds(0.3); //设置动画时间线长度
+            _doubleAnimation.Duration = TimeSpan.FromSeconds(0.25); //设置动画时间线长度
             _doubleAnimation.AccelerationRatio = 0; //动画加速
             _doubleAnimation.DecelerationRatio = 0; //动画减速
             _doubleAnimation.FillBehavior = FillBehavior.HoldEnd; //设置动画完成后执行的操作
@@ -158,12 +156,6 @@ namespace LuckyDraw
             _getresultAnimaiton.AccelerationRatio = 0;
             _getresultAnimaiton.DecelerationRatio = 0.9;
             _getresultAnimaiton.FillBehavior = FillBehavior.HoldEnd;
-            _getresultAnimaiton.Completed += _getresultAnimaiton_Completed;
-        }
-
-        private void _getresultAnimaiton_Completed(object sender, EventArgs e)
-        {
-            //SetCliptoBound(true);
         }
 
         private void _timer_Tick(object sender, EventArgs e)
@@ -171,91 +163,11 @@ namespace LuckyDraw
             SwitchList();
         }
 
-        private void LoadTestData()
-        {
-            for (int i = -10; i < 10; i++)
-            {
-                PrizeItem prize1 = new PrizeItem()
-                {
-                    Height = 150,
-                    Width = 150,
-                };
-                PrizeItem prize2 = new PrizeItem()
-                {
-                    Height = 150,
-                    Width = 150
-                };
-                PrizeItem prize3 = new PrizeItem()
-                {
-                    Height = 150,
-                    Width = 150
-                };
-                PrizeItem prize4 = new PrizeItem()
-                {
-                    Height = 150,
-                    Width = 150
-                };
-                PrizeItem prize5 = new PrizeItem()
-                {
-                    Height = 150,
-                    Width = 150
-                };
-                Canvas.SetBottom(prize1, i * 150);
-                Canvas.SetBottom(prize2, i * 150);
-                Canvas.SetBottom(prize3, i * 150);
-                Canvas.SetBottom(prize4, i * 150);
-                Canvas.SetBottom(prize5, i * 150);
-
-                prizelist1.Children.Add(prize1);
-                prizelist2.Children.Add(prize2);
-                prizelist3.Children.Add(prize3);
-                prizelist4.Children.Add(prize4);
-                prizelist5.Children.Add(prize5);
-
-                PersonItem person1 = new PersonItem()
-                {
-                    Height = 150,
-                    Width = 150
-                };
-                PersonItem person2 = new PersonItem()
-                {
-                    Height = 150,
-                    Width = 150
-                };
-                PersonItem person3 = new PersonItem()
-                {
-                    Height = 150,
-                    Width = 150
-                };
-                PersonItem person4 = new PersonItem()
-                {
-                    Height = 150,
-                    Width = 150
-                };
-                PersonItem person5 = new PersonItem()
-                {
-                    Height = 150,
-                    Width = 150
-                };
-                Canvas.SetBottom(person1, i * 150);
-                Canvas.SetBottom(person2, i * 150);
-                Canvas.SetBottom(person3, i * 150);
-                Canvas.SetBottom(person4, i * 150);
-                Canvas.SetBottom(person5, i * 150);
-
-                personlist1.Children.Add(person1);
-                personlist2.Children.Add(person2);
-                personlist3.Children.Add(person3);
-                personlist4.Children.Add(person4);
-                personlist5.Children.Add(person5);
-            }
-        }
-
         private void SwitchList()
         {
             //移动距离
             int move = 225;
-            int endposition = 600;
+            int endposition = 700;
 
             //需要删除的对象列表
             List<UIElement> deletes = new List<UIElement>();
@@ -312,7 +224,7 @@ namespace LuckyDraw
                     _doubleAnimation.To = move + transBottom;
                     item.BeginAnimation(Canvas.BottomProperty, _doubleAnimation); //设置动画应用的属性并启动动画 
                     transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                    if (_doubleAnimation.To > endposition)
+                    if (transBottom > endposition)
                     {
                         deletes.Add(item);
                     }
@@ -351,7 +263,7 @@ namespace LuckyDraw
                     _doubleAnimation.To = move + transBottom;
                     item.BeginAnimation(Canvas.BottomProperty, _doubleAnimation); //设置动画应用的属性并启动动画 
                     transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                    if (_doubleAnimation.To > endposition)
+                    if (transBottom > endposition)
                     {
                         deletes.Add(item);
                     }
@@ -390,7 +302,7 @@ namespace LuckyDraw
                     _doubleAnimation.To = move + transBottom;
                     item.BeginAnimation(Canvas.BottomProperty, _doubleAnimation); //设置动画应用的属性并启动动画 
                     transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                    if (_doubleAnimation.To > endposition)
+                    if (transBottom > endposition)
                     {
                         deletes.Add(item);
                     }
@@ -429,7 +341,7 @@ namespace LuckyDraw
                     _doubleAnimation.To = move + transBottom;
                     item.BeginAnimation(Canvas.BottomProperty, _doubleAnimation); //设置动画应用的属性并启动动画 
                     transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                    if (_doubleAnimation.To > endposition)
+                    if (transBottom > endposition)
                     {
                         deletes.Add(item);
                     }
@@ -469,7 +381,7 @@ namespace LuckyDraw
                     _doubleAnimation.To = transBottom - move;
                     item.BeginAnimation(Canvas.BottomProperty, _doubleAnimation); //设置动画应用的属性并启动动画 
                     transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                    if (_doubleAnimation.To < -endposition)
+                    if (transBottom < -endposition)
                     {
                         deletes.Add(item);
                     }
@@ -509,7 +421,7 @@ namespace LuckyDraw
                     _doubleAnimation.To = transBottom - move;
                     item.BeginAnimation(Canvas.BottomProperty, _doubleAnimation); //设置动画应用的属性并启动动画 
                     transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                    if (_doubleAnimation.To < -endposition)
+                    if (transBottom < -endposition)
                     {
                         deletes.Add(item);
                     }
@@ -549,7 +461,7 @@ namespace LuckyDraw
                     _doubleAnimation.To = transBottom - move;
                     item.BeginAnimation(Canvas.BottomProperty, _doubleAnimation); //设置动画应用的属性并启动动画 
                     transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                    if (_doubleAnimation.To < -endposition)
+                    if (transBottom < -endposition)
                     {
                         deletes.Add(item);
                     }
@@ -589,7 +501,7 @@ namespace LuckyDraw
                     _doubleAnimation.To = transBottom - move;
                     item.BeginAnimation(Canvas.BottomProperty, _doubleAnimation); //设置动画应用的属性并启动动画 
                     transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                    if (_doubleAnimation.To < -endposition)
+                    if (transBottom < -endposition)
                     {
                         deletes.Add(item);
                     }
@@ -629,7 +541,7 @@ namespace LuckyDraw
                     _doubleAnimation.To = transBottom - move;
                     item.BeginAnimation(Canvas.BottomProperty, _doubleAnimation); //设置动画应用的属性并启动动画 
                     transBottom = Convert.ToDouble(item.GetValue(Canvas.BottomProperty));
-                    if (_doubleAnimation.To < -endposition)
+                    if (transBottom < -endposition)
                     {
                         deletes.Add(item);
                     }
@@ -665,7 +577,7 @@ namespace LuckyDraw
         {
             int move = 225;
 
-            for (int i = -3; i < 4; i++)
+            for (int i = -4; i < 5; i++)
             {
                 PrizeItem prize1 = new PrizeItem()
                 {

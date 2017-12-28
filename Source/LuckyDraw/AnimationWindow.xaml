@@ -14,14 +14,14 @@
 
     <Grid>
         <Image Source="pack://application:,,,/Image/中奖背景.png" x:Name="resultimage1"
-                   VerticalAlignment="Center"
-                   Margin="0 0 0 450"/>
+               VerticalAlignment="Center" 
+               Margin="0 0 0 450"/>
 
         <Image Source="pack://application:,,,/Image/中奖背景.png"  x:Name="resultimage2"
-                   VerticalAlignment="Center"/>
+               VerticalAlignment="Center"/>
 
         <Image Source="pack://application:,,,/Image/中奖背景.png"  x:Name="resultimage3"
-                   VerticalAlignment="Center"
+               VerticalAlignment="Center"
                Margin="0 450 0 0"/>
 
         <Grid>
@@ -89,7 +89,7 @@
         </Grid>
 
         <Image Source="pack://application:,,,/Image/foreground22.png"
-               HorizontalAlignment="Stretch"
+               HorizontalAlignment="Stretch" Stretch="Fill"
                VerticalAlignment="Stretch"/>
 
         <Image Source="pack://application:,,,/Image/剩余奖品数量背景框.png"
