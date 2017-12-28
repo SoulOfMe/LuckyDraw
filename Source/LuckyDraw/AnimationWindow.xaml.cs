@@ -209,6 +209,8 @@ namespace LuckyDraw
                 };
                 int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
+                prizeItem.SetBackground(prizeItem.prizename.Text);
+
                 Canvas.SetBottom(prizeItem, -i * move + endDouble);
                 prizelist1.Children.Add(prizeItem);
             }
@@ -248,6 +250,8 @@ namespace LuckyDraw
                 };
                 int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
+                prizeItem.SetBackground(prizeItem.prizename.Text);
+
                 Canvas.SetBottom(prizeItem, -i * move + endDouble);
                 prizelist2.Children.Add(prizeItem);
             }
@@ -287,6 +291,8 @@ namespace LuckyDraw
                 };
                 int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
+                prizeItem.SetBackground(prizeItem.prizename.Text);
+
                 Canvas.SetBottom(prizeItem, -i * move + endDouble);
                 prizelist3.Children.Add(prizeItem);
             }
@@ -326,6 +332,8 @@ namespace LuckyDraw
                 };
                 int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
+                prizeItem.SetBackground(prizeItem.prizename.Text);
+
                 Canvas.SetBottom(prizeItem, -i * move + endDouble);
                 prizelist4.Children.Add(prizeItem);
             }
@@ -365,6 +373,8 @@ namespace LuckyDraw
                 };
                 int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
+                prizeItem.SetBackground(prizeItem.prizename.Text);
+
                 Canvas.SetBottom(prizeItem, -i * move + endDouble);
                 prizelist5.Children.Add(prizeItem);
             }
@@ -586,6 +596,8 @@ namespace LuckyDraw
                 };
                 int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prize1.prizename.Text = _mainViewModel.PrizesList[rad].Name;
+                prize1.SetBackground(prize1.prizename.Text);
+
                 PrizeItem prize2 = new PrizeItem()
                 {
                     Height = 150,
@@ -593,6 +605,8 @@ namespace LuckyDraw
                 };
                 rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prize2.prizename.Text = _mainViewModel.PrizesList[rad].Name;
+                prize2.SetBackground(prize2.prizename.Text);
+
                 PrizeItem prize3 = new PrizeItem()
                 {
                     Height = 150,
@@ -600,6 +614,8 @@ namespace LuckyDraw
                 };
                 rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prize3.prizename.Text = _mainViewModel.PrizesList[rad].Name;
+                prize3.SetBackground(prize3.prizename.Text);
+
                 PrizeItem prize4 = new PrizeItem()
                 {
                     Height = 150,
@@ -607,6 +623,8 @@ namespace LuckyDraw
                 };
                 rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prize4.prizename.Text = _mainViewModel.PrizesList[rad].Name;
+                prize4.SetBackground(prize4.prizename.Text);
+
                 PrizeItem prize5 = new PrizeItem()
                 {
                     Height = 150,
@@ -614,6 +632,7 @@ namespace LuckyDraw
                 };
                 rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                 prize5.prizename.Text = _mainViewModel.PrizesList[rad].Name;
+                prize5.SetBackground(prize5.prizename.Text);
 
                 //prize1.Opacity = 0.5;
                 //prize2.Opacity = 0.5;
@@ -764,6 +783,8 @@ namespace LuckyDraw
                         int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                         prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
                     }
+                    prizeItem.SetBackground(prizeItem.prizename.Text);
+
                     Canvas.SetBottom(prizeItem, -i * move + endDouble);
                     prizelist1.Children.Add(prizeItem);
                 }
@@ -944,6 +965,8 @@ namespace LuckyDraw
                         prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
                         //prizeItem.Opacity = 0.5;
                     }
+                    prizeItem.SetBackground(prizeItem.prizename.Text);
+
                     Canvas.SetBottom(prizeItem, -i * move + endDouble);
                     prizelist2.Children.Add(prizeItem);
                 }
@@ -1124,6 +1147,8 @@ namespace LuckyDraw
                         int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                         prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
                     }
+                    prizeItem.SetBackground(prizeItem.prizename.Text);
+
                     Canvas.SetBottom(prizeItem, -i * move + endDouble);
                     prizelist3.Children.Add(prizeItem);
                 }
@@ -1303,6 +1328,8 @@ namespace LuckyDraw
                         int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                         prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
                     }
+                    prizeItem.SetBackground(prizeItem.prizename.Text);
+
                     Canvas.SetBottom(prizeItem, -i * move + endDouble);
                     prizelist4.Children.Add(prizeItem);
                 }
@@ -1482,6 +1509,8 @@ namespace LuckyDraw
                         int rad = _random.Next(_mainViewModel.PrizesList.Count - 1);
                         prizeItem.prizename.Text = _mainViewModel.PrizesList[rad].Name;
                     }
+                    prizeItem.SetBackground(prizeItem.prizename.Text);
+
                     Canvas.SetBottom(prizeItem, -i * move + endDouble);
                     prizelist5.Children.Add(prizeItem);
                 }

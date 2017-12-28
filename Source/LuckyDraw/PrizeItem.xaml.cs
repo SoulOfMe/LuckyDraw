@@ -24,5 +24,24 @@ namespace LuckyDraw
         {
             InitializeComponent();
         }
+
+        public void SetBackground(string name)
+        {
+            try
+            {
+                string path = @"pack://application:,,,/PrizeImage/" +
+                      name + ".png";
+
+                BitmapImage image = new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
+                ImageBrush brush = new ImageBrush();
+                brush.ImageSource = image;
+
+                this.Background = brush;
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
     }
 }
