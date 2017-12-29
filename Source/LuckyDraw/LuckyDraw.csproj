@@ -163,5 +163,16 @@
     <Resource Include="PrizeImage\跳舞毯.png" />
     <Resource Include="PrizeImage\零食大礼包.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Music\中奖音乐.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Music\开始音乐.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Music\滚动音乐.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -28,14 +28,17 @@ namespace LuckyDraw
 
             AnimationLoad();
             //LoadData();
-            _timer.Interval = new TimeSpan(0, 0, 0, 0, 250);
+            _timer.Interval = new TimeSpan(0, 0, 0, 0, 200);
             _timer.Tick += _timer_Tick;
 
             restprizecount.Text = "剩余奖品数：" + _mainViewModel.PrizeCount.ToString();
+            order.Text = "当前第" + (_mainViewModel.PrizeOrder - 1).ToString() + "组";
 
             resultimage1.Visibility = Visibility.Hidden;
             resultimage2.Visibility = Visibility.Hidden;
             resultimage3.Visibility = Visibility.Hidden;
+
+            LoadMediaPlayer();
         }
 
         private DoubleAnimation _doubleAnimation = new DoubleAnimation();
@@ -45,6 +48,10 @@ namespace LuckyDraw
         private MainViewModel _mainViewModel = new MainViewModel();
         Random _random = new Random(); //随机数生成器
         private bool _isRun = false; //是否在滚动
+
+        private MediaPlayer _loadPlayer = new MediaPlayer(); //启动音乐
+        private MediaPlayer _runPlayer = new MediaPlayer(); //滚动音乐
+        private MediaPlayer _stopPlayer = new MediaPlayer(); //中奖音乐
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -96,6 +103,12 @@ namespace LuckyDraw
                     SwitchList();
                     _timer.Start();
                     _isRun = true;
+                    _runPlayer.Play();
+                    _loadPlayer.Stop();
+                    _stopPlayer.Stop();
+
+
+                    order.Text = "当前第" + _mainViewModel.PrizeOrder.ToString() + "组";
                 }
                 else if (e.Key == Key.Enter)
                 {
@@ -107,6 +120,8 @@ namespace LuckyDraw
                         restprizecount.Text = "剩余奖品数：" + _mainViewModel.PrizeCount.ToString();
 
                         _isRun = false;
+                        _runPlayer.Stop();
+                        _stopPlayer.Play();
                     }
                 }
             }
@@ -147,7 +162,7 @@ namespace LuckyDraw
 
         private void AnimationLoad()
         {
-            _doubleAnimation.Duration = TimeSpan.FromSeconds(0.25); //设置动画时间线长度
+            _doubleAnimation.Duration = TimeSpan.FromSeconds(0.2); //设置动画时间线长度
             _doubleAnimation.AccelerationRatio = 0; //动画加速
             _doubleAnimation.DecelerationRatio = 0; //动画减速
             _doubleAnimation.FillBehavior = FillBehavior.HoldEnd; //设置动画完成后执行的操作
@@ -1661,6 +1676,23 @@ namespace LuckyDraw
                 personlist4.ClipToBounds = clip;
                 personlist5.ClipToBounds = clip;
             }
+        }
+
+        private void LoadMediaPlayer()
+        {
+            try
+            {
+                _loadPlayer.Open(new Uri(@"Music/开始音乐.wav", UriKind.RelativeOrAbsolute));
+                _loadPlayer.Volume = 100;
+                _loadPlayer.Play();
+
+                _runPlayer.Open(new Uri(@"Music/滚动音乐.wav", UriKind.RelativeOrAbsolute));
+                _runPlayer.Volume = 100;
+
+                _stopPlayer.Open(new Uri(@"Music/中奖音乐.wav", UriKind.RelativeOrAbsolute));
+                _stopPlayer.Volume = 100;
+            }
+            catch (Exception e) { }
         }
     }
 }

@@ -47,6 +47,17 @@ namespace LuckyDraw
             }
         }
 
+        /// <summary>
+        /// 当前抽奖次数
+        /// </summary>
+        public int PrizeOrder
+        {
+            get
+            {
+                return (_prizesList.Count - PrizeCount) / 15 + 1;
+            }
+        }
+
         #region 界面滚动列表数据
         private ObservableCollection<Prize> _prizesList = new ObservableCollection<Prize>();
         private ObservableCollection<Person> _peopleList = new ObservableCollection<Person>();

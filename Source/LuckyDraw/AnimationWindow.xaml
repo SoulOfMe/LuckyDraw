@@ -104,5 +104,14 @@
                MinWidth="100" Padding="5"
                FontSize="40"
                Foreground="White"/>
+
+        <TextBlock Margin="500 50 0 0"  
+                   x:Name="order"
+               VerticalAlignment="Top" 
+               HorizontalAlignment="Center"
+               TextAlignment="Center" 
+               Padding="5"
+               FontSize="16"
+               Foreground="White"/>
     </Grid>
 </Window>
