@@ -43,7 +43,7 @@
             </Canvas>
 
             <Canvas Width="150" Height="150"
-                Grid.Column="1" Margin="-30 0 0 0"
+                Grid.Column="1" Margin="0 0 0 0"
                 x:Name="personlist1">
             </Canvas>
 
@@ -53,7 +53,7 @@
             </Canvas>
 
             <Canvas Width="150" Height="150"
-                Grid.Column="3" Margin="-30 0 0 0"
+                Grid.Column="3" Margin="0 0 0 0"
                 x:Name="personlist2">
             </Canvas>
 
@@ -63,7 +63,7 @@
             </Canvas>
 
             <Canvas Width="150" Height="150"
-                Grid.Column="5" Margin="-30 0 0 0"
+                Grid.Column="5" Margin="0 0 0 0"
                 x:Name="personlist3">
             </Canvas>
 
@@ -73,7 +73,7 @@
             </Canvas>
 
             <Canvas Width="150" Height="150"
-                Grid.Column="7" Margin="-30 0 0 0"
+                Grid.Column="7" Margin="0 0 0 0"
                 x:Name="personlist4">
             </Canvas>
 
@@ -83,7 +83,7 @@
             </Canvas>
 
             <Canvas Width="150" Height="150"
-                Grid.Column="9" Margin="-30 0 0 0"
+                Grid.Column="9" Margin="0 0 0 0"
                 x:Name="personlist5">
             </Canvas>
         </Grid>
